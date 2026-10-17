@@ -11,12 +11,7 @@
 ```text
 pharma-supply-chain-intelligence/
 ├── README.md
-├── docs/
-│   ├── requirements.md       # نطاق ومتطلبات المشروع
-│   ├── architecture.md       # معمارية النظام ومسار البيانات
-│   ├── data_dictionary.md    # قاموس البيانات وقواعد المطابقة
-│   ├── decisions.md          # قرارات المشروع المعتمدة وقيد الاختبار (ADR)
-│   └── testing.md            # خطة الاختبارات وجودة البيانات
+├── docs/                     # توثيق المشروع
 ├── dags/                     # Apache Airflow DAGs
 ├── ingestion/                # سكربتات جلب البيانات من المصادر
 ├── lakehouse/
