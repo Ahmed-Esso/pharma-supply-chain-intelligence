@@ -1,0 +1,45 @@
+# ==============================================================================
+# Pharma Supply Chain Intelligence - Dependencies
+# Python Recommended: >= 3.10, <= 3.11
+# ==============================================================================
+
+# Core Data Engineering, Lakehouse & Transformations
+pyspark>=3.5.0
+delta-spark>=3.0.0
+pyarrow>=14.0.0
+duckdb>=0.9.0
+pandas>=2.1.0
+numpy>=1.26.0
+
+# Data Ingestion & API Connectors
+requests>=2.31.0
+httpx>=0.26.0
+python-dotenv>=1.0.0
+pydantic>=2.5.0
+
+# Workflow Orchestration
+# Note: In local development, install Airflow with your preferred constraints
+apache-airflow>=2.8.0
+
+# Document Processing & RAG Pipeline
+pypdf>=4.0.0
+pdfplumber>=0.10.0
+langchain>=0.1.0
+langchain-community>=0.0.20
+chromadb>=0.4.22
+faiss-cpu>=1.7.4
+tiktoken>=0.6.0
+openai>=1.12.0
+
+# API & Dashboard
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+streamlit>=1.31.0
+plotly>=5.18.0
+
+# Data Quality & Testing
+pytest>=8.0.0
+pytest-cov>=4.1.0
+pytest-mock>=3.12.0
+black>=24.1.0
+flake8>=7.0.0

@@ -1,0 +1,104 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+.venv/
+env/
+.env
+ENV/
+env.bak/
+venv.bak/
+
+# Environment variables & secrets (CRITICAL: Never commit secrets)
+.env
+*.env
+!.env.example
+secrets.json
+*.pem
+*.key
+*.token
+credentials/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+
+# Jupyter Notebooks & Checkpoints
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# IDEs & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Apache Airflow
+airflow.cfg
+airflow.db
+airflow-webserver.pid
+standalone_admin_password.txt
+logs/
+airflow/logs/
+
+# Delta Lake & Spark
+spark-warehouse/
+metastore_db/
+derby.log
+*.parquet
+*.delta/
+_delta_log/
+checkpoint/
+
+# Data & Large Files (Keep data_samples/ small; ignore heavy datasets)
+data/
+data/raw/
+data/bronze/
+data/silver/
+data/gold/
+data_samples/raw_large/
+*.csv.gz
+*.tar.gz
+*.zip
+*.parquet
+
+# Vector Stores & Embeddings Local Index
+vector_store/
+chroma_db/
+faiss_index/
+*.index
+*.sqlite3
+
+# Temp files
+tmp/
+temp/

@@ -1,0 +1,11 @@
+product_name,strength,dosage_form,pack_size,supplier_id,price,currency,availability_status,observation_date,source_url
+Amoxicillin,500 mg,Capsule,20 Capsules,SUPP_CAIRO_01,35.00,EGP,In Stock,2026-10-01,https://api.fda.gov/drug/sample1
+Amoxicillin,500 mg,Capsule,20 Capsules,SUPP_CAIRO_01,38.50,EGP,In Stock,2026-10-15,https://api.fda.gov/drug/sample1
+Paracetamol,500 mg,Tablet,24 Tablets,SUPP_GIZA_02,22.00,EGP,In Stock,2026-10-05,https://publicpharma.example.com/feed
+Azithromycin,250 mg,Tablet,6 Tablets,SUPP_ALEX_03,45.00,EGP,Shortage,2026-10-10,https://publicpharma.example.com/shortages
+Ceftriaxone,1 g,Vial,1 Vial,SUPP_CAIRO_01,65.00,EGP,Limited,2026-10-12,https://publicpharma.example.com/hosp
+Omeprazole,20 mg,Capsule,14 Capsules,SUPP_GIZA_02,28.00,EGP,In Stock,2026-10-14,https://api.fda.gov/drug/sample1
+Atorvastatin,20 mg,Tablet,30 Tablets,SUPP_ALEX_03,75.00,EGP,In Stock,2026-10-16,https://api.fda.gov/drug/sample1
+Metformin,500 mg,Tablet,50 Tablets,SUPP_CAIRO_01,-10.00,EGP,In Stock,2026-10-16,https://test.invalid/negative_price_sample
+,100 mg,Tablet,10 Tablets,SUPP_UNKNOWN,15.00,EGP,In Stock,2026-10-16,https://test.invalid/missing_name_sample
+Ibuprofen,400 mg,Tablet,30 Tablets,SUPP_GIZA_02,30.00,EGP,In Stock,2099-01-01,https://test.invalid/future_date_sample
