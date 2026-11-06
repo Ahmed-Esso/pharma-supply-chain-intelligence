@@ -2,56 +2,220 @@
 Task 2 (ClickUp ID: 123u8tyngjn) — Implement text extraction and OCR fallback
 
 Extracts page-level text from PDF documents (preserving document_id, page_number,
-section headers, and character metrics), triggers OCR fallback ONLY when normal PDF
-text extraction returns insufficient text (< MIN_TEXT_CHARS), and normalizes
-structured regulatory records (openFDA Enforcement Recalls & openFDA NDC) into
-traceable document units. Also regenerates `lakehouse/gold/gold_rag_knowledge_corpus.csv`.
+section headers, and character metrics), triggers Baidu Unlimited-OCR
+(https://github.com/baidu/Unlimited-OCR) fallback ONLY when normal PDF text extraction
+returns insufficient text (< MIN_TEXT_CHARS_FOR_NATIVE_PDF), and normalizes structured
+regulatory records (openFDA Enforcement Recalls & openFDA NDC) into traceable document units.
+Also regenerates `lakehouse/gold/gold_rag_knowledge_corpus.csv`.
 """
 
 from __future__ import annotations
 
+import base64
 import csv
 import json
+import os
 import re
+import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 from rag.extraction.document_inventory import (
     EXTRACTION_DIR,
     REPO_ROOT,
-    WORKSPACE_ROOT,
     build_document_inventory,
 )
 
 MIN_TEXT_CHARS_FOR_NATIVE_PDF = 25
 
+UNLIMITED_OCR_DEFAULT_MODEL = os.getenv("UNLIMITED_OCR_MODEL", "baidu/Unlimited-OCR")
+UNLIMITED_OCR_API_URL = os.getenv("UNLIMITED_OCR_API_URL", "").strip()
+UNLIMITED_OCR_BASE_SIZE = int(os.getenv("UNLIMITED_OCR_BASE_SIZE", "1024"))
+UNLIMITED_OCR_IMAGE_SIZE = int(os.getenv("UNLIMITED_OCR_IMAGE_SIZE", "640"))
+UNLIMITED_OCR_MAX_LENGTH = int(os.getenv("UNLIMITED_OCR_MAX_LENGTH", "32768"))
+UNLIMITED_OCR_NO_REPEAT_NGRAM = int(os.getenv("UNLIMITED_OCR_NO_REPEAT_NGRAM", "35"))
+UNLIMITED_OCR_NGRAM_WINDOW = int(os.getenv("UNLIMITED_OCR_NGRAM_WINDOW", "128"))
+
+
+class BaiduUnlimitedOCREngine:
+    """
+    Lazy-loaded wrapper for `baidu/Unlimited-OCR` (Reference Sliding Window Attention VLM).
+    Reference: https://github.com/baidu/Unlimited-OCR
+
+    Supports two execution modes when a scanned/low-text PDF page triggers OCR fallback:
+    1. vLLM OpenAI-compatible Server (`UNLIMITED_OCR_API_URL` configured in environment)
+    2. Local HuggingFace `AutoModel` + `AutoTokenizer` with `trust_remote_code=True` on CUDA GPU
+    3. Graceful CPU/Offline fallback if neither vLLM nor CUDA GPU is available on the host.
+    """
+
+    _tokenizer: Any = None
+    _model: Any = None
+    _loaded_model_name: Optional[str] = None
+
+    @classmethod
+    def render_pdf_page_to_png_bytes(cls, pdf_path: Path, page_number: int, dpi: int = 200) -> Optional[bytes]:
+        """Render a 1-indexed PDF page to PNG bytes using PyMuPDF (fitz) or pypdfium2."""
+        try:
+            import fitz  # PyMuPDF
+
+            doc = fitz.open(str(pdf_path))
+            page = doc[page_number - 1]
+            pix = page.get_pixmap(dpi=dpi)
+            png_bytes = pix.tobytes("png")
+            doc.close()
+            return png_bytes
+        except ImportError:
+            return None
+        except Exception:
+            return None
+
+    @classmethod
+    def infer_via_vllm_endpoint(
+        cls,
+        png_bytes: bytes,
+        api_url: str,
+        model_name: str = UNLIMITED_OCR_DEFAULT_MODEL,
+    ) -> Tuple[str, str]:
+        """
+        Query a running `vLLM serve baidu/Unlimited-OCR` endpoint using Reference Sliding
+        Window Attention parameters (`no_repeat_ngram_size=35`, `ngram_window=128`).
+        """
+        import requests
+
+        b64_img = base64.b64encode(png_bytes).decode("ascii")
+        endpoint = api_url.rstrip("/")
+        if not endpoint.endswith("/chat/completions"):
+            endpoint = f"{endpoint}/chat/completions"
+
+        payload = {
+            "model": model_name,
+            "messages": [
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "image_url",
+                            "image_url": {"url": f"data:image/png;base64,{b64_img}"},
+                        },
+                        {
+                            "type": "text",
+                            "text": "<image>document parsing.",
+                        },
+                    ],
+                }
+            ],
+            "max_tokens": min(UNLIMITED_OCR_MAX_LENGTH, 8192),
+            "no_repeat_ngram_size": UNLIMITED_OCR_NO_REPEAT_NGRAM,
+            "ngram_window": UNLIMITED_OCR_NGRAM_WINDOW,
+        }
+        resp = requests.post(endpoint, json=payload, timeout=60)
+        resp.raise_for_status()
+        data = resp.json()
+        text = (
+            data.get("choices", [{}])[0]
+            .get("message", {})
+            .get("content", "")
+            .strip()
+        )
+        if text:
+            return text, f"BAIDU_UNLIMITED_OCR_VLLM_SUCCESS({model_name})"
+        return "", f"BAIDU_UNLIMITED_OCR_VLLM_EMPTY({model_name})"
+
+    @classmethod
+    def infer_via_transformers_cuda(
+        cls,
+        png_bytes: bytes,
+        model_name: str = UNLIMITED_OCR_DEFAULT_MODEL,
+    ) -> Tuple[str, str]:
+        """
+        Run local HuggingFace `AutoModel.from_pretrained("baidu/Unlimited-OCR", trust_remote_code=True)`
+        with Reference Sliding Window Attention (`ngram_window=128`, `no_repeat_ngram_size=35`).
+        """
+        try:
+            import torch
+            from transformers import AutoModel, AutoTokenizer
+        except ImportError:
+            return "", "BAIDU_UNLIMITED_OCR_TRANSFORMERS_NOT_INSTALLED"
+
+        if not torch.cuda.is_available():
+            return "", "BAIDU_UNLIMITED_OCR_SKIPPED_NO_CUDA_GPU"
+
+        if cls._model is None or cls._loaded_model_name != model_name:
+            cls._tokenizer = AutoTokenizer.from_pretrained(
+                model_name, trust_remote_code=True
+            )
+            cls._model = (
+                AutoModel.from_pretrained(
+                    model_name,
+                    trust_remote_code=True,
+                    use_safetensors=True,
+                    torch_dtype=torch.bfloat16,
+                )
+                .eval()
+                .cuda()
+            )
+            cls._loaded_model_name = model_name
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_img_path = Path(tmp_dir) / "page.png"
+            tmp_img_path.write_bytes(png_bytes)
+            out_dir = Path(tmp_dir) / "ocr_output"
+            out_dir.mkdir(parents=True, exist_ok=True)
+
+            output_text = cls._model.infer(
+                cls._tokenizer,
+                prompt="<image>document parsing.",
+                image_file=str(tmp_img_path),
+                output_path=str(out_dir),
+                base_size=UNLIMITED_OCR_BASE_SIZE,
+                image_size=UNLIMITED_OCR_IMAGE_SIZE,
+                crop_mode=True,
+                max_length=UNLIMITED_OCR_MAX_LENGTH,
+                no_repeat_ngram_size=UNLIMITED_OCR_NO_REPEAT_NGRAM,
+                ngram_window=UNLIMITED_OCR_NGRAM_WINDOW,
+                save_results=False,
+            )
+
+        parsed = (output_text or "").strip()
+        if parsed:
+            return parsed, f"BAIDU_UNLIMITED_OCR_CUDA_SUCCESS({model_name})"
+        return "", f"BAIDU_UNLIMITED_OCR_CUDA_EMPTY({model_name})"
+
 
 def _try_ocr_fallback(pdf_path: Path, page_number: int) -> Tuple[str, str]:
     """
-    Attempt OCR fallback on a single 1-indexed PDF page when native text extraction
-    yields insufficient text (e.g., scanned page or cover art).
+    Attempt OCR fallback on a single 1-indexed PDF page using `baidu/Unlimited-OCR`
+    when native PDF text extraction yields insufficient text (< MIN_TEXT_CHARS_FOR_NATIVE_PDF).
     Follows project architectural rule: OCR is fallback ONLY when normal extraction fails.
     """
-    try:
-        import fitz  # PyMuPDF
-        import pytesseract
-        from PIL import Image
-        import io
+    model_name = os.getenv("UNLIMITED_OCR_MODEL", UNLIMITED_OCR_DEFAULT_MODEL)
+    api_url = os.getenv("UNLIMITED_OCR_API_URL", UNLIMITED_OCR_API_URL).strip()
 
-        doc = fitz.open(str(pdf_path))
-        page = doc[page_number - 1]
-        pix = page.get_pixmap(dpi=200)
-        img = Image.open(io.BytesIO(pix.tobytes("png")))
-        ocr_text = pytesseract.image_to_string(img).strip()
-        doc.close()
-        if ocr_text:
-            return ocr_text, "OCR_FALLBACK_PYTESSERACT_SUCCESS"
-        return "", "OCR_FALLBACK_EMPTY_PAGE"
-    except ImportError:
-        return "", "OCR_FALLBACK_TRIGGERED_ENGINE_NOT_INSTALLED"
-    except Exception as exc:
-        return "", f"OCR_FALLBACK_ERROR:{type(exc).__name__}"
+    png_bytes = BaiduUnlimitedOCREngine.render_pdf_page_to_png_bytes(pdf_path, page_number)
+
+    # 1. Try vLLM Unlimited-OCR Server if configured
+    if api_url and png_bytes:
+        try:
+            return BaiduUnlimitedOCREngine.infer_via_vllm_endpoint(
+                png_bytes=png_bytes, api_url=api_url, model_name=model_name
+            )
+        except Exception as exc:
+            return "", f"BAIDU_UNLIMITED_OCR_VLLM_ERROR:{type(exc).__name__}"
+
+    # 2. Try Local HuggingFace `baidu/Unlimited-OCR` on CUDA GPU
+    if png_bytes:
+        try:
+            text, status = BaiduUnlimitedOCREngine.infer_via_transformers_cuda(
+                png_bytes=png_bytes, model_name=model_name
+            )
+            if text:
+                return text, status
+            return "", status
+        except Exception as exc:
+            return "", f"BAIDU_UNLIMITED_OCR_CUDA_ERROR:{type(exc).__name__}"
+
+    return "", f"BAIDU_UNLIMITED_OCR_FALLBACK_READY_NO_GPU_OR_RENDERER({model_name})"
 
 
 def extract_pdf_pages_with_ocr_fallback(
@@ -64,7 +228,7 @@ def extract_pdf_pages_with_ocr_fallback(
     """
     Extract text page-by-page from a PDF file using PyMuPDF (fitz), pypdf, or pdfplumber,
     falling back to verified Bronze page extraction if native PDF libraries are not installed
-    in the current Python environment, and triggering OCR fallback on low-text pages.
+    in the current Python environment, and triggering `baidu/Unlimited-OCR` fallback on low-text pages.
     """
     raw_pages: List[str] = []
     engine_used = "NONE"
@@ -126,7 +290,7 @@ def extract_pdf_pages_with_ocr_fallback(
             ocr_text, ocr_status = _try_ocr_fallback(pdf_path, page_idx)
             if len(ocr_text) >= MIN_TEXT_CHARS_FOR_NATIVE_PDF:
                 cleaned = ocr_text
-                extraction_method = "OCR_FALLBACK"
+                extraction_method = "OCR_FALLBACK_BAIDU_UNLIMITED_OCR"
             else:
                 empty_after_fallback_count += 1
                 extraction_method = "LOW_TEXT_OR_BLANK_PAGE"
@@ -154,6 +318,7 @@ def extract_pdf_pages_with_ocr_fallback(
                 "char_count": len(cleaned),
                 "word_count": len(cleaned.split()),
                 "extraction_engine": engine_used,
+                "ocr_fallback_engine": UNLIMITED_OCR_DEFAULT_MODEL,
                 "extraction_method": extraction_method,
                 "ocr_fallback_status": ocr_status,
                 "is_usable": len(cleaned) >= MIN_TEXT_CHARS_FOR_NATIVE_PDF,
@@ -166,6 +331,8 @@ def extract_pdf_pages_with_ocr_fallback(
         "total_pages": len(raw_pages),
         "native_text_pages": native_ok_count,
         "ocr_fallback_triggered_pages": ocr_triggered_count,
+        "ocr_fallback_engine": UNLIMITED_OCR_DEFAULT_MODEL,
+        "ocr_fallback_architecture": "Reference Sliding Window Attention (R-SWA)",
         "empty_or_cover_pages": empty_after_fallback_count,
         "usable_pages": sum(1 for r in extracted_records if r["is_usable"]),
         "total_extracted_chars": sum(r["char_count"] for r in extracted_records),
@@ -223,11 +390,12 @@ def extract_fda_enforcement_records(
                 "publisher": publisher,
                 "source_url": source_url,
                 "document_type": "JSON_REGULATORY_RECALLS",
-                "page_number": idx,  # 1-based record index for traceable citation
+                "page_number": idx,
                 "section_hint": f"Recall {recall_num} ({classification}) - {firm}",
                 "char_count": len(structured_text),
                 "word_count": len(structured_text.split()),
                 "extraction_engine": "openFDA_JSON_Normalizer",
+                "ocr_fallback_engine": "NOT_APPLICABLE_JSON",
                 "extraction_method": "STRUCTURED_JSON_TO_TEXT",
                 "ocr_fallback_status": "NOT_APPLICABLE_JSON",
                 "is_usable": bool(reason or product_desc),
@@ -311,6 +479,7 @@ def extract_fda_ndc_records(
                 "char_count": len(structured_text),
                 "word_count": len(structured_text.split()),
                 "extraction_engine": "openFDA_NDC_Normalizer",
+                "ocr_fallback_engine": "NOT_APPLICABLE_JSON",
                 "extraction_method": "STRUCTURED_JSON_TO_TEXT",
                 "ocr_fallback_status": "NOT_APPLICABLE_JSON",
                 "is_usable": True,
@@ -336,7 +505,7 @@ def extract_fda_ndc_records(
 
 
 def run_extraction_pipeline() -> Dict[str, Any]:
-    """Run full inventory + text extraction + OCR fallback and save artifacts."""
+    """Run full inventory + text extraction + Baidu Unlimited-OCR fallback and save artifacts."""
     inventory = build_document_inventory()
     all_units: List[Dict[str, Any]] = []
     source_summaries: List[Dict[str, Any]] = []
@@ -411,6 +580,7 @@ def run_extraction_pipeline() -> Dict[str, Any]:
                 "page_or_record": u["page_number"],
                 "section_hint": u["section_hint"],
                 "extraction_method": u["extraction_method"],
+                "ocr_fallback_engine": u.get("ocr_fallback_engine", ""),
             }
             if "metadata_extra" in u:
                 meta_obj.update(u["metadata_extra"])
@@ -427,6 +597,8 @@ def run_extraction_pipeline() -> Dict[str, Any]:
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "owner": "Mayar Hany (Member 3 — Document Processing & RAG)",
         "clickup_task_id": "123u8tyngjn",
+        "ocr_fallback_engine": UNLIMITED_OCR_DEFAULT_MODEL,
+        "ocr_fallback_repo": "https://github.com/baidu/Unlimited-OCR",
         "total_extracted_units": len(all_units),
         "usable_units": sum(1 for u in all_units if u["is_usable"]),
         "unusable_or_blank_units": sum(1 for u in all_units if not u["is_usable"]),

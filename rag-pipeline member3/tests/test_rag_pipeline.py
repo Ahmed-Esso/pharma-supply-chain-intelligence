@@ -45,12 +45,14 @@ def test_task2_extraction_and_ocr_fallback() -> None:
     rep = run_extraction_pipeline()
     assert rep["total_extracted_units"] == 271  # 71 WHO pages + 100 FDA Recalls + 100 FDA NDC
     assert rep["usable_units"] == 269  # 2 blank pages in WHO PDF trigger OCR fallback
+    assert rep["ocr_fallback_engine"] == "baidu/Unlimited-OCR"
     assert (EXTRACTION_DIR / "extracted_documents.json").exists()
     assert (REPO_ROOT / "lakehouse" / "gold" / "gold_rag_knowledge_corpus.csv").exists()
 
     who_stats = next(s for s in rep["source_breakdown"] if s["document_id"] == "DOC-WHO-EML-2023")
     assert who_stats["total_pages"] == 71
     assert who_stats["ocr_fallback_triggered_pages"] == 2
+    assert who_stats["ocr_fallback_engine"] == "baidu/Unlimited-OCR"
 
 
 def test_task3_chunking_and_embeddings() -> None:

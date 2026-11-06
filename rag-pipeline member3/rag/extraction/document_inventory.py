@@ -17,7 +17,7 @@ from typing import Any, Dict, List
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-WORKSPACE_ROOT = REPO_ROOT.parent.parent
+WORKSPACE_ROOT = REPO_ROOT.parent
 EXTRACTION_DIR = Path(__file__).resolve().parent
 
 

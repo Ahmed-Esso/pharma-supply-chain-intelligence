@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-06T15:41:30.362775+00:00",
+  "generated_at_utc": "2026-11-06T18:24:35.113073+00:00",
   "owner": "Mayar Hany (Member 3 — Document Processing & RAG)",
   "clickup_task_ids": [
     "123u8tyngjm",
@@ -24,8 +24,8 @@
       "scope_limitations": "Official global reference list of essential medicines, dosage forms, and therapeutic alternatives (AWaRe antibiotic groups). Does NOT represent live Egyptian market stock or local retail pricing.",
       "is_synthetic": false,
       "file_exists": true,
-      "file_path": "pharma-supply-chain-intelligence-member-2-lakehouse-quality\\pharma-supply-chain-intelligence-member-2-lakehouse-quality\\lakehouse\\bronze\\who\\WHO_EML_2023.pdf",
-      "absolute_path": "E:\\project jupyter notebook\\depi eng\\pharma-supply-chain-intelligence-member-2-lakehouse-quality\\pharma-supply-chain-intelligence-member-2-lakehouse-quality\\lakehouse\\bronze\\who\\WHO_EML_2023.pdf",
+      "file_path": "rag-pipeline member3\\lakehouse\\bronze\\who\\WHO_EML_2023.pdf",
+      "absolute_path": "E:\\project jupyter notebook\\depi eng\\rag-pipeline member3\\lakehouse\\bronze\\who\\WHO_EML_2023.pdf",
       "file_size_bytes": 926649,
       "sha256": "9617e1dee5f9772ec1154d4c4453c761fe53483c821525b9d7d9dee66a4850a1",
       "inventory_status": "VERIFIED_READY"
@@ -45,8 +45,8 @@
       "scope_limitations": "Verified FDA drug recall enforcement records (reasons for recall, CGMP deviations, sterility issues, classifications Class I/II/III, lot codes). Reflects U.S. FDA regulatory actions, not Egyptian Drug Authority (EDA) local recalls.",
       "is_synthetic": false,
       "file_exists": true,
-      "file_path": "pharma-supply-chain-intelligence-member-2-lakehouse-quality\\pharma-supply-chain-intelligence-member-2-lakehouse-quality\\member_1_deliverables\\bronze_live_api\\openfda_enforcement_20261102T155044Z.json",
-      "absolute_path": "E:\\project jupyter notebook\\depi eng\\pharma-supply-chain-intelligence-member-2-lakehouse-quality\\pharma-supply-chain-intelligence-member-2-lakehouse-quality\\member_1_deliverables\\bronze_live_api\\openfda_enforcement_20261102T155044Z.json",
+      "file_path": "rag-pipeline member3\\member_1_deliverables\\bronze_live_api\\openfda_enforcement_20261102T155044Z.json",
+      "absolute_path": "E:\\project jupyter notebook\\depi eng\\rag-pipeline member3\\member_1_deliverables\\bronze_live_api\\openfda_enforcement_20261102T155044Z.json",
       "file_size_bytes": 167320,
       "sha256": "e2d660c016eb90be1d0febae970ac8144289c6dfe8a446ab5b4b2ee28bf50495",
       "inventory_status": "VERIFIED_READY"
@@ -66,8 +66,8 @@
       "scope_limitations": "Official product directory covering brand names, generic names, active ingredients, strengths, dosage forms, and packaging descriptions. Inclusion in NDC does not verify current commercial availability or local inventory.",
       "is_synthetic": false,
       "file_exists": true,
-      "file_path": "pharma-supply-chain-intelligence-member-2-lakehouse-quality\\pharma-supply-chain-intelligence-member-2-lakehouse-quality\\member_1_deliverables\\bronze_live_api\\openfda_ndc_20261102T155044Z.json",
-      "absolute_path": "E:\\project jupyter notebook\\depi eng\\pharma-supply-chain-intelligence-member-2-lakehouse-quality\\pharma-supply-chain-intelligence-member-2-lakehouse-quality\\member_1_deliverables\\bronze_live_api\\openfda_ndc_20261102T155044Z.json",
+      "file_path": "rag-pipeline member3\\member_1_deliverables\\bronze_live_api\\openfda_ndc_20261102T155044Z.json",
+      "absolute_path": "E:\\project jupyter notebook\\depi eng\\rag-pipeline member3\\member_1_deliverables\\bronze_live_api\\openfda_ndc_20261102T155044Z.json",
       "file_size_bytes": 149479,
       "sha256": "06d8b52e2e6bf2177dd1463e0bc338aa953417fb94ef307af478283b15a7fa1d",
       "inventory_status": "VERIFIED_READY"
