@@ -1,0 +1,4 @@
+﻿source_id,source_name,url,test_timestamp_utc,http_status,response_time_seconds,response_valid_json,response_has_data,response_record_count,retry_attempts,retry_history,connectivity_status,error
+SRC-001,openFDA Drug NDC,https://api.fda.gov/drug/ndc.json,2026-11-04T19:09:42.922617+00:00,200,4.551,True,True,1,0,[],SUCCESS_WITH_DATA,
+SRC-002,openFDA Drug Enforcement,https://api.fda.gov/drug/enforcement.json,2026-11-04T19:09:47.473784+00:00,200,0.323,True,True,1,0,[],SUCCESS_WITH_DATA,
+SRC-005,NIH RxNav,https://rxnav.nlm.nih.gov/REST/version.json,2026-11-04T19:09:47.796619+00:00,200,0.987,True,False,0,0,[],SUCCESS_EMPTY_RESPONSE,

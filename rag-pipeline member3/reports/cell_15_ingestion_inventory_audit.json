@@ -1,0 +1,23 @@
+{
+    "cell": "CELL 15",
+    "audit_name": "Data Source Register and Ingestion Inventory",
+    "execution_timestamp_utc": "2026-11-04T19:11:25.110170+00:00",
+    "audit_type": "READ_ONLY",
+    "total_registered_sources": 9,
+    "files_found": 8,
+    "valid_json_files": 8,
+    "sources_with_records": 5,
+    "empty_sources": 3,
+    "missing_sources": 1,
+    "invalid_sources": 0,
+    "total_records_across_registered_files": 22694,
+    "register_csv": "g:\\Pharma Supply Chain Intelligence\\reports\\cell_15_data_source_register.csv",
+    "register_json": "g:\\Pharma Supply Chain Intelligence\\reports\\cell_15_data_source_register.json",
+    "limitations": [
+        "File presence does not prove source authenticity.",
+        "Records are not classified as verified market inventory.",
+        "Source URLs and publisher metadata require manual confirmation.",
+        "Empty API responses are not automatically interpreted as end-of-data.",
+        "This cell does not modify Bronze, Silver, or Gold datasets."
+    ]
+}

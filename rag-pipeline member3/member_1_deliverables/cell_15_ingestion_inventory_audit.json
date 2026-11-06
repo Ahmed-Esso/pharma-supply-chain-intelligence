@@ -1,0 +1,23 @@
+{
+    "cell": "CELL 15",
+    "audit_name": "Data Source Register and Ingestion Inventory",
+    "execution_timestamp_utc": "2026-11-02T15:50:37.234954+00:00",
+    "audit_type": "READ_ONLY",
+    "total_registered_sources": 9,
+    "files_found": 9,
+    "valid_json_files": 9,
+    "sources_with_records": 4,
+    "empty_sources": 5,
+    "missing_sources": 0,
+    "invalid_sources": 0,
+    "total_records_across_registered_files": 138653,
+    "register_csv": "/content/reports/cell_15_data_source_register.csv",
+    "register_json": "/content/reports/cell_15_data_source_register.json",
+    "limitations": [
+        "File presence does not prove source authenticity.",
+        "Records are not classified as verified market inventory.",
+        "Source URLs and publisher metadata require manual confirmation.",
+        "Empty API responses are not automatically interpreted as end-of-data.",
+        "This cell does not modify Bronze, Silver, or Gold datasets."
+    ]
+}

@@ -1,0 +1,13 @@
+{
+  "generated_at_utc": "2026-11-06T15:41:32.095591+00:00",
+  "owner": "Mayar Hany (Member 3 — Document Processing & RAG)",
+  "clickup_task_id": "123u8tyngjp",
+  "embedding_model": "sklearn-hybrid-lsa-128d",
+  "num_vectors": 390,
+  "embedding_dimension": 128,
+  "vocabulary_size_words": 18815,
+  "explained_variance_ratio_sum": 0.5196,
+  "embeddings_matrix_file": "rag\\chunking\\embeddings_matrix.npy",
+  "vector_index_file": "rag\\chunking\\vector_index.pkl",
+  "all_vectors_normalized": true
+}

@@ -1,0 +1,50 @@
+[
+    {
+        "run_id": "20261104T190948Z",
+        "source_id": "SRC-001",
+        "source_name": "openFDA Drug NDC",
+        "endpoint": "https://api.fda.gov/drug/ndc.json",
+        "started_at_utc": "2026-11-04T19:09:48.820938+00:00",
+        "completed_at_utc": "2026-11-04T19:10:02.115623+00:00",
+        "http_status": 200,
+        "response_time_seconds": 13.288,
+        "record_count": 100,
+        "response_valid_json": true,
+        "ingestion_status": "SUCCESS_WITH_DATA",
+        "retry_attempts": 0,
+        "output_file": "g:\\Pharma Supply Chain Intelligence\\data\\bronze\\live_api\\openfda_ndc_20261104T190948Z.json",
+        "error": null
+    },
+    {
+        "run_id": "20261104T190948Z",
+        "source_id": "SRC-002",
+        "source_name": "openFDA Drug Enforcement",
+        "endpoint": "https://api.fda.gov/drug/enforcement.json",
+        "started_at_utc": "2026-11-04T19:10:02.115799+00:00",
+        "completed_at_utc": "2026-11-04T19:10:02.523899+00:00",
+        "http_status": 200,
+        "response_time_seconds": 0.403,
+        "record_count": 100,
+        "response_valid_json": true,
+        "ingestion_status": "SUCCESS_WITH_DATA",
+        "retry_attempts": 0,
+        "output_file": "g:\\Pharma Supply Chain Intelligence\\data\\bronze\\live_api\\openfda_enforcement_20261104T190948Z.json",
+        "error": null
+    },
+    {
+        "run_id": "20261104T190948Z",
+        "source_id": "SRC-005",
+        "source_name": "NIH RxNav Version",
+        "endpoint": "https://rxnav.nlm.nih.gov/REST/version.json",
+        "started_at_utc": "2026-11-04T19:10:02.524042+00:00",
+        "completed_at_utc": "2026-11-04T19:10:03.251701+00:00",
+        "http_status": 200,
+        "response_time_seconds": 0.727,
+        "record_count": 1,
+        "response_valid_json": true,
+        "ingestion_status": "SUCCESS_WITH_DATA",
+        "retry_attempts": 0,
+        "output_file": "g:\\Pharma Supply Chain Intelligence\\data\\bronze\\live_api\\rxnav_version_20261104T190948Z.json",
+        "error": null
+    }
+]

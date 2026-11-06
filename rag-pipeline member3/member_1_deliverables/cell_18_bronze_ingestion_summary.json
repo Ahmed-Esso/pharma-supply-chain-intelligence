@@ -1,0 +1,21 @@
+{
+    "cell": "CELL 18",
+    "run_id": "20261102T155044Z",
+    "execution_timestamp_utc": "2026-11-02T15:50:44.478801+00:00",
+    "total_sources_attempted": 3,
+    "successful_sources_with_data": 3,
+    "successful_empty_responses": 0,
+    "failed_sources": 0,
+    "total_records_ingested": 201,
+    "bronze_output_directory": "/content/data/bronze/live_api",
+    "execution_log_csv": "/content/reports/cell_18_bronze_ingestion_log.csv",
+    "execution_log_json": "/content/reports/cell_18_bronze_ingestion_log.json",
+    "data_preservation": "NEW_TIMESTAMPED_FILES; EXISTING_BRONZE_FILES_NOT_OVERWRITTEN",
+    "airflow_execution": "NOT_EXECUTED",
+    "limitations": [
+        "Only the configured API samples were ingested.",
+        "The NDC and enforcement endpoints request up to 100 records each.",
+        "The RxNav version endpoint is metadata, not a drug-concept dataset.",
+        "A successful API request does not establish complete source coverage."
+    ]
+}

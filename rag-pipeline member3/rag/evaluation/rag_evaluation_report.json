@@ -1,0 +1,308 @@
+{
+  "generated_at_utc": "2026-11-06T15:41:32.841129+00:00",
+  "owner": "Mayar Hany (Member 3 — Document Processing & RAG)",
+  "clickup_task_id": "123u8tyngk5",
+  "total_questions": 12,
+  "answerable_questions": 9,
+  "unanswerable_guardrail_questions": 3,
+  "metrics": {
+    "overall_status_accuracy": 1.0,
+    "document_hit_rate_at_1": 1.0,
+    "document_hit_rate_at_3": 1.0,
+    "exact_page_citation_accuracy": 1.0,
+    "evidence_keyword_support_rate": 1.0,
+    "unsupported_query_rejection_rate": 1.0
+  },
+  "results": [
+    {
+      "question_id": "Q01",
+      "category": "WHO_EML_PDF",
+      "question": "How does the WHO Essential Medicines List classify antibiotics under the AWaRe stewardship framework?",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_match": true,
+      "doc_hit_at_1": true,
+      "doc_hit_at_3": true,
+      "exact_page_or_record_cited": true,
+      "keyword_evidence_verified": true,
+      "confidence_score": 0.6693,
+      "cited_sources": [
+        {
+          "document_id": "DOC-WHO-EML-2023",
+          "page": 11,
+          "score": 0.6693
+        },
+        {
+          "document_id": "DOC-WHO-EML-2023",
+          "page": 11,
+          "score": 0.497
+        },
+        {
+          "document_id": "DOC-WHO-EML-2023",
+          "page": 11,
+          "score": 0.4886
+        }
+      ],
+      "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **WHO Model List of Essential Medicines - 23rd List (2023)** (Source `DOC-WHO-EML-2023`, Page/Record 11): 6.2 Antibacterials | To assist in the development of tools for antibiotic stewardship at local, national and global levels a"
+    },
+    {
+      "question_id": "Q02",
+      "category": "WHO_EML_PDF",
+      "question": "What are the recommended dosage forms and first-choice indications for amoxicillin in the WHO Essential Medicines List?",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_match": true,
+      "doc_hit_at_1": true,
+      "doc_hit_at_3": true,
+      "exact_page_or_record_cited": true,
+      "keyword_evidence_verified": true,
+      "confidence_score": 0.3587,
+      "cited_sources": [
+        {
+          "document_id": "DOC-WHO-EML-2023",
+          "page": 3,
+          "score": 0.3587
+        },
+        {
+          "document_id": "DOC-WHO-EML-2023",
+          "page": 3,
+          "score": 0.3508
+        },
+        {
+          "document_id": "DOC-WHO-EML-2023",
+          "page": 12,
+          "score": 0.305
+        }
+      ],
+      "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **WHO Model List of Essential Medicines - 23rd List (2023)** (Source `DOC-WHO-EML-2023`, Page/Record 3): availability and price. | The a symbol indicates that there is an age or weight re striction on use of the medicine; details "
+    },
+    {
+      "question_id": "Q03",
+      "category": "WHO_EML_PDF",
+      "question": "Why does WHO warn against having both 120 mg/5 mL and 125 mg/5 mL paracetamol oral liquid strengths on the same market?",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_match": true,
+      "doc_hit_at_1": true,
+      "doc_hit_at_3": true,
+      "exact_page_or_record_cited": true,
+      "keyword_evidence_verified": true,
+      "confidence_score": 0.7668,
+      "cited_sources": [
+        {
+          "document_id": "DOC-WHO-EML-2023",
+          "page": 29,
+          "score": 0.7668
+        },
+        {
+          "document_id": "DOC-WHO-EML-2023",
+          "page": 5,
+          "score": 0.7394
+        },
+        {
+          "document_id": "DOC-WHO-EML-2023",
+          "page": 14,
+          "score": 0.4247
+        }
+      ],
+      "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **WHO Model List of Essential Medicines - 23rd List (2023)** (Source `DOC-WHO-EML-2023`, Page/Record 29): 7. ANTIMIGRAINE MEDICINES | 7.1 For treatment of acute attack | acetylsalicylic acid Tablet: 300 mg to 500 mg. | ibuprofen ["
+    },
+    {
+      "question_id": "Q04",
+      "category": "WHO_EML_PDF",
+      "question": "What warning is given for valproic acid (sodium valproate) regarding pregnancy in the WHO Essential Medicines List?",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_match": true,
+      "doc_hit_at_1": true,
+      "doc_hit_at_3": true,
+      "exact_page_or_record_cited": true,
+      "keyword_evidence_verified": true,
+      "confidence_score": 0.5064,
+      "cited_sources": [
+        {
+          "document_id": "DOC-WHO-EML-2023",
+          "page": 9,
+          "score": 0.5064
+        },
+        {
+          "document_id": "DOC-WHO-EML-2023",
+          "page": 59,
+          "score": 0.492
+        },
+        {
+          "document_id": "DOC-WHO-EML-2023",
+          "page": 8,
+          "score": 0.4898
+        }
+      ],
+      "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **WHO Model List of Essential Medicines - 23rd List (2023)** (Source `DOC-WHO-EML-2023`, Page/Record 9): Complementary List | ethosuximide | Capsule: 250 mg. | Oral liquid: 250 mg/5 mL. | levetiracetam | Concentrate solution for i"
+    },
+    {
+      "question_id": "Q05",
+      "category": "FDA_ENFORCEMENT_RECALL",
+      "question": "What caused the recall of Progesterone 100 mg/mL in Corn Oil Injection under recall number D-321-2016?",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_match": true,
+      "doc_hit_at_1": true,
+      "doc_hit_at_3": true,
+      "exact_page_or_record_cited": true,
+      "keyword_evidence_verified": true,
+      "confidence_score": 0.7358,
+      "cited_sources": [
+        {
+          "document_id": "DOC-FDA-ENF-20261102",
+          "page": 1,
+          "score": 0.7358
+        },
+        {
+          "document_id": "DOC-FDA-ENF-20261102",
+          "page": 76,
+          "score": 0.3282
+        },
+        {
+          "document_id": "DOC-FDA-ENF-20261102",
+          "page": 63,
+          "score": 0.3066
+        }
+      ],
+      "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **openFDA Drug Enforcement & Recall Reports Snapshot (100 Records) — Recall D-321-2016** (Source `DOC-FDA-ENF-20261102`, Page/Record 1): FDA Drug Recall Report — Recall Number: D-321-2016 | Classification: Class II | Status: Termi"
+    },
+    {
+      "question_id": "Q06",
+      "category": "FDA_ENFORCEMENT_RECALL",
+      "question": "Why was Assured Instant Hand Sanitizer Aloe & Moisturizers recalled in Recall D-0080-2021 by Albek De Mexico?",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_match": true,
+      "doc_hit_at_1": true,
+      "doc_hit_at_3": true,
+      "exact_page_or_record_cited": true,
+      "keyword_evidence_verified": true,
+      "confidence_score": 0.8725,
+      "cited_sources": [
+        {
+          "document_id": "DOC-FDA-ENF-20261102",
+          "page": 2,
+          "score": 0.8725
+        },
+        {
+          "document_id": "DOC-FDA-ENF-20261102",
+          "page": 68,
+          "score": 0.2937
+        },
+        {
+          "document_id": "DOC-FDA-ENF-20261102",
+          "page": 26,
+          "score": 0.2908
+        }
+      ],
+      "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **openFDA Drug Enforcement & Recall Reports Snapshot (100 Records) — Recall D-0080-2021** (Source `DOC-FDA-ENF-20261102`, Page/Record 2): FDA Drug Recall Report — Recall Number: D-0080-2021 | Classification: Class II | Status: Ong"
+    },
+    {
+      "question_id": "Q07",
+      "category": "FDA_NDC_CATALOG",
+      "question": "What are the active ingredients and labeler for Vaporizing Chest Rub (NDC 76176-135)?",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_match": true,
+      "doc_hit_at_1": true,
+      "doc_hit_at_3": true,
+      "exact_page_or_record_cited": true,
+      "keyword_evidence_verified": true,
+      "confidence_score": 0.8818,
+      "cited_sources": [
+        {
+          "document_id": "DOC-FDA-NDC-20261102",
+          "page": 2,
+          "score": 0.8818
+        }
+      ],
+      "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **openFDA National Drug Code (NDC) Directory Snapshot (100 Records) — NDC 76176-135 (Vaporizing Chest Rub)** (Source `DOC-FDA-NDC-20261102`, Page/Record 2): FDA NDC Drug Directory Listing — Product NDC: 76176-135 | Brand Name: Vap"
+    },
+    {
+      "question_id": "Q08",
+      "category": "FDA_NDC_CATALOG",
+      "question": "Who is the manufacturer/labeler of Koate Antihemophilic Factor (Human) with NDC 76125-667?",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_match": true,
+      "doc_hit_at_1": true,
+      "doc_hit_at_3": true,
+      "exact_page_or_record_cited": true,
+      "keyword_evidence_verified": true,
+      "confidence_score": 0.9664,
+      "cited_sources": [
+        {
+          "document_id": "DOC-FDA-NDC-20261102",
+          "page": 1,
+          "score": 0.9664
+        },
+        {
+          "document_id": "DOC-FDA-NDC-20261102",
+          "page": 9,
+          "score": 0.2539
+        }
+      ],
+      "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **openFDA National Drug Code (NDC) Directory Snapshot (100 Records) — NDC 76125-667 (Koate)** (Source `DOC-FDA-NDC-20261102`, Page/Record 1): FDA NDC Drug Directory Listing — Product NDC: 76125-667 | Brand Name: Koate | Generic Na"
+    },
+    {
+      "question_id": "Q09",
+      "category": "UNSUPPORTED_GUARDRAIL",
+      "question": "What is the current live stock inventory and retail price in EGP of Panadol Extra in Cairo pharmacies today?",
+      "expected_status": "no_answer",
+      "actual_status": "no_answer",
+      "status_match": true,
+      "hallucination_prevented": true,
+      "confidence_score": 0.0,
+      "cited_sources": [],
+      "answer_preview": "The available verified documents (WHO Essential Medicines List 2023 and U.S. openFDA Enforcement/NDC records) do not contain live Egyptian pharmacy inventory, local retail drug pricing in EGP, or real-time local stock levels. Per project data governance rules (Zero-Mock Policy), the system will not "
+    },
+    {
+      "question_id": "Q10",
+      "category": "UNSUPPORTED_GUARDRAIL",
+      "question": "How much does amoxicillin cost in Egyptian pounds in the local Egyptian pharmacy market right now?",
+      "expected_status": "no_answer",
+      "actual_status": "no_answer",
+      "status_match": true,
+      "hallucination_prevented": true,
+      "confidence_score": 0.0,
+      "cited_sources": [],
+      "answer_preview": "The available verified documents (WHO Essential Medicines List 2023 and U.S. openFDA Enforcement/NDC records) do not contain live Egyptian pharmacy inventory, local retail drug pricing in EGP, or real-time local stock levels. Per project data governance rules (Zero-Mock Policy), the system will not "
+    },
+    {
+      "question_id": "Q11",
+      "category": "UNSUPPORTED_GUARDRAIL",
+      "question": "What is the current Bitcoin cryptocurrency exchange rate and stock market index today?",
+      "expected_status": "no_answer",
+      "actual_status": "no_answer",
+      "status_match": true,
+      "hallucination_prevented": true,
+      "confidence_score": 0.0196,
+      "cited_sources": [],
+      "answer_preview": "The available verified documents do not provide sufficient evidence to answer this question. No answer was generated to prevent unsupported claims."
+    },
+    {
+      "question_id": "Q12",
+      "category": "WHO_EML_PDF",
+      "question": "Which antidotes are listed in section 4.2 of the WHO Essential Medicines List for poisonings?",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_match": true,
+      "doc_hit_at_1": true,
+      "doc_hit_at_3": true,
+      "exact_page_or_record_cited": true,
+      "keyword_evidence_verified": true,
+      "confidence_score": 0.5545,
+      "cited_sources": [
+        {
+          "document_id": "DOC-WHO-EML-2023",
+          "page": 7,
+          "score": 0.5545
+        }
+      ],
+      "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **WHO Model List of Essential Medicines - 23rd List (2023)** (Source `DOC-WHO-EML-2023`, Page/Record 7): 3. ANTIALLERGICS AND MEDICINES USED IN ANAPHYLAXIS | dexamethasone Injection: 4 mg/mL (as disodium phosphate salt) in 1 mL am"
+    }
+  ]
+}

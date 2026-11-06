@@ -1,0 +1,16 @@
+{
+  "generated_at_utc": "2026-11-06T15:41:30.472098+00:00",
+  "owner": "Mayar Hany (Member 3 — Document Processing & RAG)",
+  "clickup_task_id": "123u8tyngjp",
+  "chunk_size_chars": 1200,
+  "chunk_overlap_chars": 250,
+  "total_input_units": 269,
+  "total_chunks_generated": 390,
+  "avg_chunk_chars": 817.5,
+  "chunks_per_document": {
+    "DOC-WHO-EML-2023": 186,
+    "DOC-FDA-ENF-20261102": 104,
+    "DOC-FDA-NDC-20261102": 100
+  },
+  "chunks_file": "rag\\chunking\\chunks.json"
+}

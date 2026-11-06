@@ -1,0 +1,18 @@
+{
+  "metadata": {
+    "source_id": "SRC-005",
+    "source_name": "NIH RxNav Version",
+    "source_endpoint": "https://rxnav.nlm.nih.gov/REST/version.json",
+    "ingestion_timestamp_utc": "2026-11-02T15:50:45.192296+00:00",
+    "run_id": "20261102T155044Z",
+    "http_status": 200,
+    "response_time_seconds": 0.039,
+    "record_count": 1,
+    "ingestion_method": "HTTP_GET",
+    "data_layer": "BRONZE"
+  },
+  "data": {
+    "version": "02-Nov-2026",
+    "apiVersion": "3.1.357"
+  }
+}

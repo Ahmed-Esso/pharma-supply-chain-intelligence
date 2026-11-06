@@ -1,0 +1,20 @@
+{
+    "cell": "CELL 17",
+    "test_name": "Live API Connectivity and Retry Execution",
+    "execution_timestamp_utc": "2026-11-02T15:50:43.747879+00:00",
+    "total_tests": 3,
+    "successful_tests": 3,
+    "failed_tests": 0,
+    "actual_retry_attempts_observed": 0,
+    "retry_policy_applied": true,
+    "retry_execution_observed": false,
+    "connectivity_success_rate_percent": 100.0,
+    "results_csv": "/content/reports/cell_17_api_connectivity_tests.csv",
+    "results_json": "/content/reports/cell_17_api_connectivity_tests.json",
+    "limitations": [
+        "Tests verify current API connectivity only.",
+        "Tests do not re-ingest or overwrite Bronze datasets.",
+        "Zero retry attempts means no retryable failure occurred during this test.",
+        "Successful connectivity does not guarantee complete historical data."
+    ]
+}

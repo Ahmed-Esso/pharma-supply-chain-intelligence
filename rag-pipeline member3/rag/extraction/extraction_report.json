@@ -1,0 +1,36 @@
+{
+  "generated_at_utc": "2026-11-06T15:41:30.405182+00:00",
+  "owner": "Mayar Hany (Member 3 — Document Processing & RAG)",
+  "clickup_task_id": "123u8tyngjn",
+  "total_extracted_units": 271,
+  "usable_units": 269,
+  "unusable_or_blank_units": 2,
+  "total_characters_extracted": 286772,
+  "gold_corpus_csv_path": "lakehouse\\gold\\gold_rag_knowledge_corpus.csv",
+  "source_breakdown": [
+    {
+      "document_id": "DOC-WHO-EML-2023",
+      "total_pages": 71,
+      "native_text_pages": 69,
+      "ocr_fallback_triggered_pages": 2,
+      "empty_or_cover_pages": 2,
+      "usable_pages": 69,
+      "total_extracted_chars": 162367,
+      "extraction_engine": "pypdf (verified_bronze_page_cache)"
+    },
+    {
+      "document_id": "DOC-FDA-ENF-20261102",
+      "total_records": 100,
+      "usable_records": 100,
+      "total_extracted_chars": 78778,
+      "extraction_engine": "openFDA_JSON_Normalizer"
+    },
+    {
+      "document_id": "DOC-FDA-NDC-20261102",
+      "total_records": 100,
+      "usable_records": 100,
+      "total_extracted_chars": 45627,
+      "extraction_engine": "openFDA_NDC_Normalizer"
+    }
+  ]
+}

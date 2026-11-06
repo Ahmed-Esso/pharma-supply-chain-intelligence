@@ -1,0 +1,40 @@
+{
+    "policy_name": "HTTP_INGESTION_RETRY_POLICY",
+    "created_at_utc": "2026-11-04T19:11:25.241708+00:00",
+    "configuration": {
+        "total_retries": 3,
+        "backoff_factor": 1,
+        "status_forcelist": [
+            429,
+            500,
+            502,
+            503,
+            504
+        ],
+        "allowed_methods": [
+            "GET"
+        ],
+        "respect_retry_after_header": true,
+        "connect_timeout_seconds": 10,
+        "read_timeout_seconds": 30
+    },
+    "retryable_status_codes": [
+        429,
+        500,
+        502,
+        503,
+        504
+    ],
+    "non_retryable_status_codes": [
+        400,
+        401,
+        403,
+        404
+    ],
+    "notes": [
+        "This policy is provided for subsequent ingestion executions.",
+        "This cell does not claim that previous ingestion requests used retries.",
+        "HTTP 404 is not interpreted as successful end-of-data.",
+        "HTTP 429 and transient server errors are retryable."
+    ]
+}

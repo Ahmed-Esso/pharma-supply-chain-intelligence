@@ -1,0 +1,4 @@
+﻿run_id,source_id,source_name,endpoint,started_at_utc,completed_at_utc,http_status,response_time_seconds,record_count,response_valid_json,ingestion_status,retry_attempts,output_file,error
+20261102T155044Z,SRC-001,openFDA Drug NDC,https://api.fda.gov/drug/ndc.json,2026-11-02T15:50:44.481345+00:00,2026-11-02T15:50:44.903670+00:00,200,0.415,100,True,SUCCESS_WITH_DATA,0,/content/data/bronze/live_api/openfda_ndc_20261102T155044Z.json,
+20261102T155044Z,SRC-002,openFDA Drug Enforcement,https://api.fda.gov/drug/enforcement.json,2026-11-02T15:50:44.904009+00:00,2026-11-02T15:50:45.152620+00:00,200,0.242,100,True,SUCCESS_WITH_DATA,0,/content/data/bronze/live_api/openfda_enforcement_20261102T155044Z.json,
+20261102T155044Z,SRC-005,NIH RxNav Version,https://rxnav.nlm.nih.gov/REST/version.json,2026-11-02T15:50:45.152907+00:00,2026-11-02T15:50:45.192582+00:00,200,0.039,1,True,SUCCESS_WITH_DATA,0,/content/data/bronze/live_api/rxnav_version_20261102T155044Z.json,
