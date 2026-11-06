@@ -1,0 +1,77 @@
+{
+  "validation": {
+    "timestamp_utc": "2026-11-04T19:11:23.494437+00:00",
+    "passed_all_rules": true,
+    "overall_status": "PASSED",
+    "rules_checked": [
+      {
+        "rule_name": "Gold_Analytics_Non_Empty",
+        "status": "PASSED",
+        "details": "Gold Analytics records: 222"
+      },
+      {
+        "rule_name": "Active_Ingredient_Primary_Key_Uniqueness",
+        "status": "PASSED",
+        "details": "Primary key is present, non-null and unique."
+      },
+      {
+        "rule_name": "RAG_Corpus_Volume_Threshold",
+        "status": "PASSED",
+        "details": "RAG records: 150; target: >= 50."
+      },
+      {
+        "rule_name": "SLA_Data_Freshness_24_Hours",
+        "status": "PASSED",
+        "details": "Maximum data age: 0.00 hours."
+      }
+    ]
+  },
+  "parquet": {
+    "status": "PARTIAL",
+    "converted_count": 4,
+    "skipped_count": 4,
+    "failed_count": 0,
+    "converted_files": [
+      {
+        "file": "silver_fda_ndc.csv",
+        "parquet_path": "g:\\Pharma Supply Chain Intelligence\\data\\silver_parquet\\silver_fda_ndc.parquet",
+        "records": 300
+      },
+      {
+        "file": "silver_kaggle_medicines.csv",
+        "parquet_path": "g:\\Pharma Supply Chain Intelligence\\data\\silver_parquet\\silver_kaggle_medicines.parquet",
+        "records": 22145
+      },
+      {
+        "file": "gold_pharma_analytics.csv",
+        "parquet_path": "g:\\Pharma Supply Chain Intelligence\\data\\gold_parquet\\gold_pharma_analytics.parquet",
+        "records": 222
+      },
+      {
+        "file": "gold_rag_knowledge_corpus.csv",
+        "parquet_path": "g:\\Pharma Supply Chain Intelligence\\data\\gold_parquet\\gold_rag_knowledge_corpus.parquet",
+        "records": 150
+      }
+    ],
+    "skipped_files": [
+      {
+        "file": "silver_eda_alerts.csv",
+        "reason": "NO_DATA_OR_COLUMNS"
+      },
+      {
+        "file": "silver_fda_shortages.csv",
+        "reason": "NO_DATA_OR_COLUMNS"
+      },
+      {
+        "file": "silver_integrated_catalog.csv",
+        "reason": "EMPTY_CSV"
+      },
+      {
+        "file": "silver_who_catalog.csv",
+        "reason": "EMPTY_CSV"
+      }
+    ],
+    "failed_files": []
+  },
+  "execution_timestamp_utc": "2026-11-04T19:11:23.949710+00:00"
+}

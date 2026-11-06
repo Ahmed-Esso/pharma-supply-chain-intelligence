@@ -1,0 +1,129 @@
+{
+    "cell": "CELL 20",
+    "timestamp_utc": "2026-11-04T19:10:03.328445+00:00",
+    "bronze_source_validation": [
+        {
+            "source_id": "SRC-001",
+            "expected_prefix": "openfda_ndc",
+            "file_count": 3,
+            "valid_json": true,
+            "metadata_present": true,
+            "data_present": true,
+            "record_count": 100,
+            "validation_status": "VALID_WITH_RECORDS",
+            "file_path": "g:\\Pharma Supply Chain Intelligence\\data\\bronze\\live_api\\openfda_ndc_20261104T190948Z.json"
+        },
+        {
+            "source_id": "SRC-002",
+            "expected_prefix": "openfda_enforcement",
+            "file_count": 3,
+            "valid_json": true,
+            "metadata_present": true,
+            "data_present": true,
+            "record_count": 100,
+            "validation_status": "VALID_WITH_RECORDS",
+            "file_path": "g:\\Pharma Supply Chain Intelligence\\data\\bronze\\live_api\\openfda_enforcement_20261104T190948Z.json"
+        },
+        {
+            "source_id": "SRC-005",
+            "expected_prefix": "rxnav_version",
+            "file_count": 3,
+            "valid_json": true,
+            "metadata_present": true,
+            "data_present": true,
+            "record_count": 1,
+            "validation_status": "VALID_WITH_RECORDS",
+            "file_path": "g:\\Pharma Supply Chain Intelligence\\data\\bronze\\live_api\\rxnav_version_20261104T190948Z.json"
+        }
+    ],
+    "ingestion_log_validation": [
+        {
+            "source_id": "SRC-001",
+            "logged_status": "SUCCESS_WITH_DATA",
+            "logged_record_count": 100,
+            "output_file_exists": true,
+            "log_validation": "PASS"
+        },
+        {
+            "source_id": "SRC-002",
+            "logged_status": "SUCCESS_WITH_DATA",
+            "logged_record_count": 100,
+            "output_file_exists": true,
+            "log_validation": "PASS"
+        },
+        {
+            "source_id": "SRC-005",
+            "logged_status": "SUCCESS_WITH_DATA",
+            "logged_record_count": 1,
+            "output_file_exists": true,
+            "log_validation": "PASS"
+        }
+    ],
+    "airflow_artifacts": {
+        "runner_exists": true,
+        "dag_exists": true,
+        "runner_syntax_valid": true,
+        "dag_syntax_valid": true,
+        "airflow_installed": false,
+        "dag_execution_verified": false
+    },
+    "checks": [
+        {
+            "check_name": "ingestion_log_available",
+            "status": "PASS",
+            "details": "g:\\Pharma Supply Chain Intelligence\\reports\\cell_18_bronze_ingestion_log.json"
+        },
+        {
+            "check_name": "ingestion_summary_available",
+            "status": "PASS",
+            "details": "g:\\Pharma Supply Chain Intelligence\\reports\\cell_18_bronze_ingestion_summary.json"
+        },
+        {
+            "check_name": "airflow_validation_available",
+            "status": "PASS",
+            "details": "g:\\Pharma Supply Chain Intelligence\\reports\\cell_19_airflow_validation.json"
+        },
+        {
+            "check_name": "bronze_files_valid",
+            "status": "PASS",
+            "details": "Valid JSON check across expected live API sources"
+        },
+        {
+            "check_name": "bronze_metadata_present",
+            "status": "PASS",
+            "details": "Source ID, timestamp and HTTP status metadata"
+        },
+        {
+            "check_name": "bronze_data_present",
+            "status": "PASS",
+            "details": "Source response payload exists"
+        },
+        {
+            "check_name": "ingestion_outputs_exist",
+            "status": "PASS",
+            "details": "Cell 18 output files referenced in ingestion log"
+        },
+        {
+            "check_name": "airflow_runner_exists",
+            "status": "PASS",
+            "details": "g:\\Pharma Supply Chain Intelligence\\reports\\pharma_ingestion_runner.py"
+        },
+        {
+            "check_name": "airflow_dag_exists",
+            "status": "PASS",
+            "details": "g:\\Pharma Supply Chain Intelligence\\reports\\airflow_pharma_pipeline_dag.py"
+        },
+        {
+            "check_name": "airflow_runner_syntax_valid",
+            "status": "PASS",
+            "details": "Python AST validation"
+        },
+        {
+            "check_name": "airflow_dag_syntax_valid",
+            "status": "PASS",
+            "details": "Python AST validation"
+        }
+    ],
+    "checks_passed": 11,
+    "checks_requiring_review": 0
+}

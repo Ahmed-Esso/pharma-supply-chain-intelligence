@@ -1,0 +1,4 @@
+﻿source_id,expected_prefix,file_count,valid_json,metadata_present,data_present,record_count,validation_status,file_path
+SRC-001,openfda_ndc,1,True,True,True,100,VALID_WITH_RECORDS,/content/data/bronze/live_api/openfda_ndc_20261102T155044Z.json
+SRC-002,openfda_enforcement,1,True,True,True,100,VALID_WITH_RECORDS,/content/data/bronze/live_api/openfda_enforcement_20261102T155044Z.json
+SRC-005,rxnav_version,1,True,True,True,1,VALID_WITH_RECORDS,/content/data/bronze/live_api/rxnav_version_20261102T155044Z.json

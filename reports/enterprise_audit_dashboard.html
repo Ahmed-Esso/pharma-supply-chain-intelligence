@@ -1,0 +1,106 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Pharmaceutical Data Pipeline Audit</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background: #f4f6f9;
+                color: #333;
+                margin: 20px;
+            }
+            .container {
+                max-width: 1100px;
+                margin: auto;
+                background: white;
+                padding: 25px;
+                border-radius: 10px;
+            }
+            h1 { color: #1a365d; }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 15px;
+            }
+            th, td {
+                padding: 12px;
+                border: 1px solid #ddd;
+                text-align: left;
+            }
+            th {
+                background: #2b6cb0;
+                color: white;
+            }
+            .passed { color: #16803c; font-weight: bold; }
+            .failed { color: #c53030; font-weight: bold; }
+            .warning { color: #b7791f; font-weight: bold; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Pharmaceutical Data Pipeline Audit Dashboard</h1>
+
+            <p><strong>Pipeline Verdict:</strong> PARTIAL_WHO_SOURCE_UNAVAILABLE</p>
+            <p><strong>Validation Status:</strong>
+                <span class="passed">PASSED</span>
+            </p>
+
+            <h2>Data Quality Rules</h2>
+            <table>
+                <tr>
+                    <th>Rule</th>
+                    <th>Status</th>
+                    <th>Details</th>
+                </tr>
+    
+                <tr>
+                    <td>Gold_Analytics_Non_Empty</td>
+                    <td class="passed">
+                        PASSED
+                    </td>
+                    <td>Gold Analytics records: 222</td>
+                </tr>
+        
+                <tr>
+                    <td>Active_Ingredient_Primary_Key_Uniqueness</td>
+                    <td class="passed">
+                        PASSED
+                    </td>
+                    <td>Primary key is present, non-null and unique.</td>
+                </tr>
+        
+                <tr>
+                    <td>RAG_Corpus_Volume_Threshold</td>
+                    <td class="passed">
+                        PASSED
+                    </td>
+                    <td>RAG records: 150; target: &gt;= 50.</td>
+                </tr>
+        
+                <tr>
+                    <td>SLA_Data_Freshness_24_Hours</td>
+                    <td class="passed">
+                        PASSED
+                    </td>
+                    <td>Maximum data age: 0.00 hours.</td>
+                </tr>
+        
+            </table>
+
+            <h2>Parquet Serialization</h2>
+            <p>Status: PARTIAL</p>
+            <p>Converted: 4</p>
+            <p>Skipped: 4</p>
+            <p>Failed: 0</p>
+
+            <h2>Execution Metadata</h2>
+            <p>Generated UTC:
+                2026-11-04T19:11:23.949072+00:00
+            </p>
+        </div>
+    </body>
+    </html>
+    

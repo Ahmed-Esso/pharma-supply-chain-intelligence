@@ -1,0 +1,47 @@
+[
+    {
+        "source_id": "SRC-001",
+        "source_name": "openFDA Drug NDC",
+        "url": "https://api.fda.gov/drug/ndc.json",
+        "test_timestamp_utc": "2026-11-04T19:09:42.922617+00:00",
+        "http_status": 200,
+        "response_time_seconds": 4.551,
+        "response_valid_json": true,
+        "response_has_data": true,
+        "response_record_count": 1,
+        "retry_attempts": 0,
+        "retry_history": [],
+        "connectivity_status": "SUCCESS_WITH_DATA",
+        "error": null
+    },
+    {
+        "source_id": "SRC-002",
+        "source_name": "openFDA Drug Enforcement",
+        "url": "https://api.fda.gov/drug/enforcement.json",
+        "test_timestamp_utc": "2026-11-04T19:09:47.473784+00:00",
+        "http_status": 200,
+        "response_time_seconds": 0.323,
+        "response_valid_json": true,
+        "response_has_data": true,
+        "response_record_count": 1,
+        "retry_attempts": 0,
+        "retry_history": [],
+        "connectivity_status": "SUCCESS_WITH_DATA",
+        "error": null
+    },
+    {
+        "source_id": "SRC-005",
+        "source_name": "NIH RxNav",
+        "url": "https://rxnav.nlm.nih.gov/REST/version.json",
+        "test_timestamp_utc": "2026-11-04T19:09:47.796619+00:00",
+        "http_status": 200,
+        "response_time_seconds": 0.987,
+        "response_valid_json": true,
+        "response_has_data": false,
+        "response_record_count": 0,
+        "retry_attempts": 0,
+        "retry_history": [],
+        "connectivity_status": "SUCCESS_EMPTY_RESPONSE",
+        "error": null
+    }
+]

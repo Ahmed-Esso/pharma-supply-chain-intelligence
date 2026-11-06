@@ -1,0 +1,17 @@
+{
+    "cell": "CELL 16",
+    "audit_name": "Ingestion Reliability and HTTP Status Validation",
+    "execution_timestamp_utc": "2026-11-02T15:50:39.814247+00:00",
+    "total_sources": 9,
+    "sources_with_data": 4,
+    "http_404_count": 0,
+    "transient_error_count": 0,
+    "empty_response_count": 4,
+    "sources_requiring_manual_review": 5,
+    "retry_policy_created": true,
+    "retry_execution_verified": false,
+    "retry_policy_file": "/content/reports/cell_16_retry_policy.json",
+    "reliability_csv": "/content/reports/cell_16_ingestion_reliability.csv",
+    "reliability_json": "/content/reports/cell_16_ingestion_reliability.json",
+    "important_note": "This cell audits existing ingestion evidence and defines a reusable retry policy. It does not re-execute historical ingestion requests."
+}

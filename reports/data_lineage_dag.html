@@ -1,0 +1,224 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Pharmaceutical Data Lineage</title>
+
+        <style>
+            body {
+                margin: 0;
+                padding: 30px;
+                background: #0f172a;
+                color: #f8fafc;
+                font-family: Arial, sans-serif;
+            }
+
+            h1 {
+                text-align: center;
+                color: #60a5fa;
+            }
+
+            .summary {
+                text-align: center;
+                margin: 25px 0;
+                color: #cbd5e1;
+            }
+
+            .container {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 20px;
+                align-items: start;
+            }
+
+            .layer {
+                background: #1e293b;
+                border: 1px solid #475569;
+                border-radius: 12px;
+                padding: 18px;
+                min-width: 0;
+            }
+
+            .layer h2 {
+                color: #60a5fa;
+                border-bottom: 1px solid #475569;
+                padding-bottom: 12px;
+            }
+
+            .dataset {
+                background: #334155;
+                border-radius: 8px;
+                padding: 12px;
+                margin: 10px 0;
+                overflow-wrap: anywhere;
+            }
+
+            .status {
+                display: block;
+                margin-top: 6px;
+                color: #86efac;
+                font-size: 12px;
+            }
+
+            .dataset small {
+                display: block;
+                margin-top: 7px;
+                color: #cbd5e1;
+            }
+
+            .empty {
+                color: #fbbf24;
+                padding: 15px;
+            }
+
+            .note {
+                margin-top: 25px;
+                color: #cbd5e1;
+                font-size: 13px;
+                line-height: 1.6;
+            }
+
+            @media(max-width: 900px) {
+                .container {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h1>Pharmaceutical Data Lake Lineage</h1>
+
+        <div class="summary">
+            Generated: 2026-11-04 19:11:23 UTC
+            <br>
+            Discovered datasets: 10
+            | Available datasets: 6
+        </div>
+
+        <div class="container">
+            
+        <section class="layer">
+            <h2>Bronze</h2>
+            <p>Raw source artifacts</p>
+            
+            <div class="dataset">
+                <strong>Medicine_Details.csv</strong>
+                <span class="status">AVAILABLE</span>
+                <small>
+                    Records: 11,825
+                    | Columns: 9
+                </small>
+            </div>
+            
+            <div class="dataset">
+                <strong>medicine_data.csv</strong>
+                <span class="status">AVAILABLE</span>
+                <small>
+                    Records: 10,320
+                    | Columns: 5
+                </small>
+            </div>
+            
+        </section>
+        
+        <section class="layer">
+            <h2>Silver</h2>
+            <p>Cleansed and transformed datasets</p>
+            
+            <div class="dataset">
+                <strong>silver_eda_alerts.csv</strong>
+                <span class="status">EMPTY_DATASET</span>
+                <small>
+                    Records: 0
+                    | Columns: 2
+                </small>
+            </div>
+            
+            <div class="dataset">
+                <strong>silver_fda_ndc.csv</strong>
+                <span class="status">AVAILABLE</span>
+                <small>
+                    Records: 300
+                    | Columns: 8
+                </small>
+            </div>
+            
+            <div class="dataset">
+                <strong>silver_fda_shortages.csv</strong>
+                <span class="status">EMPTY_DATASET</span>
+                <small>
+                    Records: 0
+                    | Columns: 2
+                </small>
+            </div>
+            
+            <div class="dataset">
+                <strong>silver_integrated_catalog.csv</strong>
+                <span class="status">EMPTY_DATASET</span>
+                <small>
+                    Records: 0
+                    | Columns: 0
+                </small>
+            </div>
+            
+            <div class="dataset">
+                <strong>silver_kaggle_medicines.csv</strong>
+                <span class="status">AVAILABLE</span>
+                <small>
+                    Records: 22,145
+                    | Columns: 16
+                </small>
+            </div>
+            
+            <div class="dataset">
+                <strong>silver_who_catalog.csv</strong>
+                <span class="status">EMPTY_DATASET</span>
+                <small>
+                    Records: 0
+                    | Columns: 0
+                </small>
+            </div>
+            
+        </section>
+        
+        <section class="layer">
+            <h2>Gold</h2>
+            <p>Analytics and serving datasets</p>
+            
+            <div class="dataset">
+                <strong>gold_pharma_analytics.csv</strong>
+                <span class="status">AVAILABLE</span>
+                <small>
+                    Records: 222
+                    | Columns: 5
+                </small>
+            </div>
+            
+            <div class="dataset">
+                <strong>gold_rag_knowledge_corpus.csv</strong>
+                <span class="status">AVAILABLE</span>
+                <small>
+                    Records: 150
+                    | Columns: 4
+                </small>
+            </div>
+            
+        </section>
+        
+        </div>
+
+        <div class="note">
+            <strong>Lineage limitation:</strong>
+            This visualization inventories datasets found in each layer.
+            It does not claim verified dataset-to-dataset dependencies.
+            Exact transformation lineage requires recorded pipeline
+            execution metadata.
+        </div>
+
+    </body>
+    </html>
+    

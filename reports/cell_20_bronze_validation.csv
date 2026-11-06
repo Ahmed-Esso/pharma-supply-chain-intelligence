@@ -1,0 +1,4 @@
+﻿source_id,expected_prefix,file_count,valid_json,metadata_present,data_present,record_count,validation_status,file_path
+SRC-001,openfda_ndc,3,True,True,True,100,VALID_WITH_RECORDS,g:\Pharma Supply Chain Intelligence\data\bronze\live_api\openfda_ndc_20261104T190948Z.json
+SRC-002,openfda_enforcement,3,True,True,True,100,VALID_WITH_RECORDS,g:\Pharma Supply Chain Intelligence\data\bronze\live_api\openfda_enforcement_20261104T190948Z.json
+SRC-005,rxnav_version,3,True,True,True,1,VALID_WITH_RECORDS,g:\Pharma Supply Chain Intelligence\data\bronze\live_api\rxnav_version_20261104T190948Z.json

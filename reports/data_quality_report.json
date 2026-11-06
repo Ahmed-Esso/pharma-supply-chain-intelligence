@@ -1,0 +1,16 @@
+{
+  "execution_timestamp_utc": "2026-11-04T19:11:23.315438+00:00",
+  "pipeline_verdict": "PARTIAL_WHO_SOURCE_UNAVAILABLE",
+  "who_source_verification": "NOT_VERIFIED",
+  "post_cleaning_metrics": {
+    "openfda_ndc": {
+      "record_count": 300
+    },
+    "who_eml": {
+      "record_count": 0
+    },
+    "integrated_catalog": {
+      "record_count": 0
+    }
+  }
+}

@@ -1,0 +1,166 @@
+{
+    "project": "Pharma Supply Chain Intelligence",
+    "team_role": "Member 1 — Data Ingestion & Workflow Orchestration",
+    "package_created_at_utc": "2026-11-02T15:50:45.304109+00:00",
+    "report_files_copied": 19,
+    "bronze_files_copied": 3,
+    "missing_report_files": [],
+    "report_files": [
+        {
+            "file_name": "cell_15_data_source_register.csv",
+            "source_path": "/content/reports/cell_15_data_source_register.csv",
+            "package_path": "/content/member_1_deliverables/cell_15_data_source_register.csv",
+            "file_size_bytes": 4667,
+            "sha256": "4c67e2fbb70c033dc56238b33c4705e1d2826c798a11c03837a817a0c0e03f2c"
+        },
+        {
+            "file_name": "cell_15_data_source_register.json",
+            "source_path": "/content/reports/cell_15_data_source_register.json",
+            "package_path": "/content/member_1_deliverables/cell_15_data_source_register.json",
+            "file_size_bytes": 10386,
+            "sha256": "8d79b3fed3d3691946414a10c7e4d3fd12a9fd2ba389e06b14705fbdeeef150e"
+        },
+        {
+            "file_name": "cell_15_ingestion_inventory_audit.json",
+            "source_path": "/content/reports/cell_15_ingestion_inventory_audit.json",
+            "package_path": "/content/member_1_deliverables/cell_15_ingestion_inventory_audit.json",
+            "file_size_bytes": 964,
+            "sha256": "95cdc66248a399e47018dad1d6a25d50b7396e6f609b18f951e6291487c19776"
+        },
+        {
+            "file_name": "cell_16_ingestion_reliability.csv",
+            "source_path": "/content/reports/cell_16_ingestion_reliability.csv",
+            "package_path": "/content/member_1_deliverables/cell_16_ingestion_reliability.csv",
+            "file_size_bytes": 2087,
+            "sha256": "dd2c11b4d31db8ce42928c0103aa91d651eef3022e771d879a80113310d124ab"
+        },
+        {
+            "file_name": "cell_16_ingestion_reliability.json",
+            "source_path": "/content/reports/cell_16_ingestion_reliability.json",
+            "package_path": "/content/member_1_deliverables/cell_16_ingestion_reliability.json",
+            "file_size_bytes": 5354,
+            "sha256": "3d7f66d7aaa4e618c3dfb7014f46e712858d95489f6f5f4e013d0391f9c7cfcb"
+        },
+        {
+            "file_name": "cell_16_retry_policy.json",
+            "source_path": "/content/reports/cell_16_retry_policy.json",
+            "package_path": "/content/member_1_deliverables/cell_16_retry_policy.json",
+            "file_size_bytes": 1000,
+            "sha256": "c67d40837d7a19ba5e85f67f5493d7179ca5fc064838019a5a66e29f8e50a662"
+        },
+        {
+            "file_name": "cell_16_reliability_summary.json",
+            "source_path": "/content/reports/cell_16_reliability_summary.json",
+            "package_path": "/content/member_1_deliverables/cell_16_reliability_summary.json",
+            "file_size_bytes": 805,
+            "sha256": "c30e9fc4eb89491b0f2db63a78e390a29ff435d0a6de6e3cc2d225934298ebdd"
+        },
+        {
+            "file_name": "cell_17_api_connectivity_tests.csv",
+            "source_path": "/content/reports/cell_17_api_connectivity_tests.csv",
+            "package_path": "/content/member_1_deliverables/cell_17_api_connectivity_tests.csv",
+            "file_size_bytes": 636,
+            "sha256": "75fc1b97ba370aacf2196d33669ebcd69c4521ee279d1c37f0d4a608abc3573d"
+        },
+        {
+            "file_name": "cell_17_api_connectivity_tests.json",
+            "source_path": "/content/reports/cell_17_api_connectivity_tests.json",
+            "package_path": "/content/member_1_deliverables/cell_17_api_connectivity_tests.json",
+            "file_size_bytes": 1569,
+            "sha256": "3d84dcdab80c64539297537ab81310c0e1c81690a0bce7d063049750ee932b03"
+        },
+        {
+            "file_name": "cell_17_api_connectivity_summary.json",
+            "source_path": "/content/reports/cell_17_api_connectivity_summary.json",
+            "package_path": "/content/member_1_deliverables/cell_17_api_connectivity_summary.json",
+            "file_size_bytes": 849,
+            "sha256": "80de4cd928cc4f3f50c97a33666de83146b901f4bf8f33611042f57d28e8353a"
+        },
+        {
+            "file_name": "cell_18_bronze_ingestion_log.csv",
+            "source_path": "/content/reports/cell_18_bronze_ingestion_log.csv",
+            "package_path": "/content/member_1_deliverables/cell_18_bronze_ingestion_log.csv",
+            "file_size_bytes": 963,
+            "sha256": "6cec1f17eeb9d882a21ba0fa7cb1f1875fb999c5cfba0d8f0199033287732252"
+        },
+        {
+            "file_name": "cell_18_bronze_ingestion_log.json",
+            "source_path": "/content/reports/cell_18_bronze_ingestion_log.json",
+            "package_path": "/content/member_1_deliverables/cell_18_bronze_ingestion_log.json",
+            "file_size_bytes": 1936,
+            "sha256": "703a07fe48e96896569f60181928dca93895e3996f2a95da207be6a3cb66b66d"
+        },
+        {
+            "file_name": "cell_18_bronze_ingestion_summary.json",
+            "source_path": "/content/reports/cell_18_bronze_ingestion_summary.json",
+            "package_path": "/content/member_1_deliverables/cell_18_bronze_ingestion_summary.json",
+            "file_size_bytes": 970,
+            "sha256": "8f9e32195e38920ba7e18d6102e9e3f69cf31910912b3459a02b6edbb09653de"
+        },
+        {
+            "file_name": "pharma_ingestion_runner.py",
+            "source_path": "/content/reports/pharma_ingestion_runner.py",
+            "package_path": "/content/member_1_deliverables/pharma_ingestion_runner.py",
+            "file_size_bytes": 4193,
+            "sha256": "2a29e878fead9d88ba49c0b04268096201999b5f1717a02c59e25cdf09248cf6"
+        },
+        {
+            "file_name": "airflow_pharma_pipeline_dag.py",
+            "source_path": "/content/reports/airflow_pharma_pipeline_dag.py",
+            "package_path": "/content/member_1_deliverables/airflow_pharma_pipeline_dag.py",
+            "file_size_bytes": 1347,
+            "sha256": "0f426217c33281ca22df7289502af5854a39e3ef3d3fb217743dbea0279d96e1"
+        },
+        {
+            "file_name": "cell_19_airflow_validation.json",
+            "source_path": "/content/reports/cell_19_airflow_validation.json",
+            "package_path": "/content/member_1_deliverables/cell_19_airflow_validation.json",
+            "file_size_bytes": 1118,
+            "sha256": "a339d041bc32ef7f558a6f171e372e5f38287380a62a56f0291df3e42ca587a9"
+        },
+        {
+            "file_name": "cell_20_bronze_validation.csv",
+            "source_path": "/content/reports/cell_20_bronze_validation.csv",
+            "package_path": "/content/member_1_deliverables/cell_20_bronze_validation.csv",
+            "file_size_bytes": 512,
+            "sha256": "f10f12d0a4d6ce2ab93abae7a5486a235010aa62ae7f464d6e4ee507e351c2c3"
+        },
+        {
+            "file_name": "cell_20_bronze_validation.json",
+            "source_path": "/content/reports/cell_20_bronze_validation.json",
+            "package_path": "/content/member_1_deliverables/cell_20_bronze_validation.json",
+            "file_size_bytes": 4300,
+            "sha256": "1beaa175af45e55b609a50923e2d313481b45c6f42ab89a75098d2767a566105"
+        },
+        {
+            "file_name": "member_1_ingestion_handoff.json",
+            "source_path": "/content/reports/member_1_ingestion_handoff.json",
+            "package_path": "/content/member_1_deliverables/member_1_ingestion_handoff.json",
+            "file_size_bytes": 2833,
+            "sha256": "a0a6f9fe4e67fda9e0ae293a8e9a9c29f1daf30ebb4d68d9ec54abcc9292ea61"
+        }
+    ],
+    "bronze_files": [
+        {
+            "file_name": "openfda_enforcement_20261102T155044Z.json",
+            "package_path": "/content/member_1_deliverables/bronze_live_api/openfda_enforcement_20261102T155044Z.json",
+            "file_size_bytes": 167320,
+            "sha256": "e2d660c016eb90be1d0febae970ac8144289c6dfe8a446ab5b4b2ee28bf50495"
+        },
+        {
+            "file_name": "openfda_ndc_20261102T155044Z.json",
+            "package_path": "/content/member_1_deliverables/bronze_live_api/openfda_ndc_20261102T155044Z.json",
+            "file_size_bytes": 149479,
+            "sha256": "06d8b52e2e6bf2177dd1463e0bc338aa953417fb94ef307af478283b15a7fa1d"
+        },
+        {
+            "file_name": "rxnav_version_20261102T155044Z.json",
+            "package_path": "/content/member_1_deliverables/bronze_live_api/rxnav_version_20261102T155044Z.json",
+            "file_size_bytes": 483,
+            "sha256": "58069738e8a6e59c2363b98da0430e883b14acd6d2440997281fc7613e9a676f"
+        }
+    ],
+    "airflow_execution": "NOT_EXECUTED",
+    "production_deployment": "NOT_CONFIRMED",
+    "package_status": "PACKAGE_CREATED"
+}

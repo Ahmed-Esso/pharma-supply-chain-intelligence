@@ -1,0 +1,243 @@
+{
+    "bundle_name": "Pharmaceutical Data Engineering Pipeline",
+    "generated_at_utc": "2026-11-04T19:11:23.955429+00:00",
+    "base_directory": "g:\\Pharma Supply Chain Intelligence",
+    "included_directories": [
+        "data\\bronze\\openfda",
+        "data\\bronze\\rxnav",
+        "data\\bronze\\who",
+        "data\\bronze\\kaggle",
+        "data\\bronze\\eda",
+        "data\\bronze\\eda\\pdfs",
+        "data\\bronze\\rag_corpus",
+        "data\\silver",
+        "data\\gold",
+        "data\\silver_parquet",
+        "data\\gold_parquet",
+        "reports"
+    ],
+    "included_files": [
+        {
+            "path": "data\\bronze\\openfda\\fda_bulk_download_raw.json",
+            "size_bytes": 305
+        },
+        {
+            "path": "data\\bronze\\openfda\\fda_enforcement_raw.json",
+            "size_bytes": 254131
+        },
+        {
+            "path": "data\\bronze\\openfda\\fda_ndc_raw.json",
+            "size_bytes": 567764
+        },
+        {
+            "path": "data\\bronze\\openfda\\fda_shortages_raw.json",
+            "size_bytes": 380
+        },
+        {
+            "path": "data\\bronze\\rxnav\\rxnav_concepts_raw.json",
+            "size_bytes": 7685
+        },
+        {
+            "path": "data\\bronze\\who\\WHO_EML_2023.pdf",
+            "size_bytes": 926649
+        },
+        {
+            "path": "data\\bronze\\who\\WHO_EML_2023_extracted.txt",
+            "size_bytes": 164557
+        },
+        {
+            "path": "data\\bronze\\who\\WHO_EML_2023_pages.json",
+            "size_bytes": 168925
+        },
+        {
+            "path": "data\\bronze\\who\\who_eml_raw.json",
+            "size_bytes": 178622
+        },
+        {
+            "path": "data\\bronze\\kaggle\\Medicine_Details.csv",
+            "size_bytes": 4372065
+        },
+        {
+            "path": "data\\bronze\\kaggle\\kaggle_medicines_raw.json",
+            "size_bytes": 12496806
+        },
+        {
+            "path": "data\\bronze\\kaggle\\medicine_data.csv",
+            "size_bytes": 885685
+        },
+        {
+            "path": "data\\bronze\\eda\\eda_alerts_raw.json",
+            "size_bytes": 298
+        },
+        {
+            "path": "data\\bronze\\rag_corpus\\drugs_com_pricing_raw.json",
+            "size_bytes": 276
+        },
+        {
+            "path": "data\\bronze\\rag_corpus\\fda_safety_corpus.json",
+            "size_bytes": 83763
+        },
+        {
+            "path": "data\\silver\\silver_eda_alerts.csv",
+            "size_bytes": 22
+        },
+        {
+            "path": "data\\silver\\silver_fda_ndc.csv",
+            "size_bytes": 70671
+        },
+        {
+            "path": "data\\silver\\silver_fda_shortages.csv",
+            "size_bytes": 19
+        },
+        {
+            "path": "data\\silver\\silver_integrated_catalog.csv",
+            "size_bytes": 2
+        },
+        {
+            "path": "data\\silver\\silver_kaggle_medicines.csv",
+            "size_bytes": 7367470
+        },
+        {
+            "path": "data\\silver\\silver_who_catalog.csv",
+            "size_bytes": 2
+        },
+        {
+            "path": "data\\gold\\gold_pharma_analytics.csv",
+            "size_bytes": 16722
+        },
+        {
+            "path": "data\\gold\\gold_rag_knowledge_corpus.csv",
+            "size_bytes": 61787
+        },
+        {
+            "path": "data\\silver_parquet\\silver_fda_ndc.parquet",
+            "size_bytes": 62572
+        },
+        {
+            "path": "data\\silver_parquet\\silver_kaggle_medicines.parquet",
+            "size_bytes": 2336950
+        },
+        {
+            "path": "data\\gold_parquet\\gold_pharma_analytics.parquet",
+            "size_bytes": 10645
+        },
+        {
+            "path": "data\\gold_parquet\\gold_rag_knowledge_corpus.parquet",
+            "size_bytes": 28312
+        },
+        {
+            "path": "reports\\DATA_CATALOG_DICTIONARY.md",
+            "size_bytes": 3262
+        },
+        {
+            "path": "reports\\MASTER_BUNDLE_MANIFEST.json",
+            "size_bytes": 4925
+        },
+        {
+            "path": "reports\\airflow_pharma_pipeline_dag.py",
+            "size_bytes": 1398
+        },
+        {
+            "path": "reports\\cell_15_data_source_register.csv",
+            "size_bytes": 4668
+        },
+        {
+            "path": "reports\\cell_15_data_source_register.json",
+            "size_bytes": 10633
+        },
+        {
+            "path": "reports\\cell_15_ingestion_inventory_audit.json",
+            "size_bytes": 1045
+        },
+        {
+            "path": "reports\\cell_16_ingestion_reliability.csv",
+            "size_bytes": 2084
+        },
+        {
+            "path": "reports\\cell_16_ingestion_reliability.json",
+            "size_bytes": 5468
+        },
+        {
+            "path": "reports\\cell_16_reliability_summary.json",
+            "size_bytes": 911
+        },
+        {
+            "path": "reports\\cell_16_retry_policy.json",
+            "size_bytes": 1039
+        },
+        {
+            "path": "reports\\cell_17_api_connectivity_summary.json",
+            "size_bytes": 928
+        },
+        {
+            "path": "reports\\cell_17_api_connectivity_tests.csv",
+            "size_bytes": 640
+        },
+        {
+            "path": "reports\\cell_17_api_connectivity_tests.json",
+            "size_bytes": 1615
+        },
+        {
+            "path": "reports\\cell_18_bronze_ingestion_log.csv",
+            "size_bytes": 1049
+        },
+        {
+            "path": "reports\\cell_18_bronze_ingestion_log.json",
+            "size_bytes": 2082
+        },
+        {
+            "path": "reports\\cell_18_bronze_ingestion_summary.json",
+            "size_bytes": 1081
+        },
+        {
+            "path": "reports\\cell_19_airflow_validation.json",
+            "size_bytes": 1204
+        },
+        {
+            "path": "reports\\cell_20_bronze_validation.csv",
+            "size_bytes": 597
+        },
+        {
+            "path": "reports\\cell_20_bronze_validation.json",
+            "size_bytes": 4674
+        },
+        {
+            "path": "reports\\cell_60_handoff_package_update.json",
+            "size_bytes": 296
+        },
+        {
+            "path": "reports\\cell_8_3_validation_report.json",
+            "size_bytes": 2318
+        },
+        {
+            "path": "reports\\data_lineage_dag.html",
+            "size_bytes": 6495
+        },
+        {
+            "path": "reports\\data_quality_report.json",
+            "size_bytes": 377
+        },
+        {
+            "path": "reports\\enterprise_audit_dashboard.html",
+            "size_bytes": 3334
+        },
+        {
+            "path": "reports\\master_pipeline_audit_report.json",
+            "size_bytes": 432
+        },
+        {
+            "path": "reports\\member_1_final_handoff.txt",
+            "size_bytes": 1117
+        },
+        {
+            "path": "reports\\member_1_ingestion_handoff.json",
+            "size_bytes": 3130
+        },
+        {
+            "path": "reports\\pharma_ingestion_runner.py",
+            "size_bytes": 4367
+        }
+    ],
+    "total_files": 55,
+    "total_size_bytes": 30134254
+}
