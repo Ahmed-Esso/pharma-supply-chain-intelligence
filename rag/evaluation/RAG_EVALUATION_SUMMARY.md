@@ -2,7 +2,7 @@
 
 - **Owner:** Mayar Hany (Member 3 — Document Processing & RAG)
 - **ClickUp Task:** `123u8tyngk5` (Evaluate RAG relevance and citation support)
-- **Generated (UTC):** `2026-11-21T19:35:40.119157+00:00`
+- **Generated (UTC):** `2026-11-21T20:24:00.316217+00:00`
 
 ## Summary Metrics
 

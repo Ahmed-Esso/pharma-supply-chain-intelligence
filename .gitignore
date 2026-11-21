@@ -76,6 +76,7 @@ spark-warehouse/
 metastore_db/
 derby.log
 *.parquet
+!lakehouse/**/*.parquet
 *.delta/
 _delta_log/
 checkpoint/
@@ -91,6 +92,7 @@ data_samples/raw_large/
 *.tar.gz
 *.zip
 *.parquet
+!lakehouse/**/*.parquet
 
 # Vector Stores & Embeddings Local Index
 vector_store/
