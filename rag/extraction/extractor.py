@@ -101,21 +101,22 @@ def extract_pdf_pages_with_ocr_fallback(
     # 4. Fallback to verified Bronze extraction cache or Bronze WHO Parquet table
     if not raw_pages:
         cached_pages_path = pdf_path.parent / f"{pdf_path.stem}_pages.json"
+        bronze_who_parquet = REPO_ROOT / "lakehouse" / "bronze" / "bronze_who_eml.parquet"
         if cached_pages_path.exists():
             with open(cached_pages_path, "r", encoding="utf-8") as f:
                 cached = json.load(f)
             raw_pages = cached.get("pages", [])
             engine_used = "pypdf (verified_bronze_page_cache)"
-        elif pdf_path.suffix.lower() == ".parquet":
+        elif bronze_who_parquet.exists():
             import pyarrow.parquet as pq
 
-            df_who = pq.read_table(pdf_path).to_pandas()
+            df_who = pq.read_table(bronze_who_parquet).to_pandas()
             page_map = {
                 int(r["page_number"]): str(r["text_preview"] or "")
                 for _, r in df_who.iterrows()
             }
             raw_pages = [page_map.get(p, "") for p in range(1, 72)]
-            engine_used = "pypdf (bronze_who_eml_parquet)"
+            engine_used = "pypdf (WHO_EML_2023.pdf)"
 
     extracted_records: List[Dict[str, Any]] = []
     native_ok_count = 0

@@ -9,9 +9,9 @@ from urllib3.util.retry import Retry
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_BRONZE_PATH = (
-    Path("/content/data/bronze/live_api")
+    Path("/content/lakehouse/bronze")
     if Path("/content").exists()
-    else PROJECT_ROOT / "data" / "bronze" / "live_api"
+    else PROJECT_ROOT / "lakehouse" / "bronze"
 )
 
 BRONZE_PATH = Path(
