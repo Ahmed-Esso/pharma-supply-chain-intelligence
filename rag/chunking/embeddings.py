@@ -60,7 +60,8 @@ def build_embeddings_index() -> Dict[str, Any]:
         lowercase=True,
         stop_words="english",
         sublinear_tf=True,
-        max_features=25000,
+        max_features=8000,
+        dtype=np.float32,
     )
     word_tfidf_matrix = word_vectorizer.fit_transform(texts)
 
@@ -69,7 +70,8 @@ def build_embeddings_index() -> Dict[str, Any]:
         ngram_range=(3, 5),
         lowercase=True,
         sublinear_tf=True,
-        max_features=25000,
+        max_features=10000,
+        dtype=np.float32,
     )
     char_tfidf_matrix = char_vectorizer.fit_transform(texts)
 
@@ -80,6 +82,7 @@ def build_embeddings_index() -> Dict[str, Any]:
     )
     svd_model = TruncatedSVD(n_components=n_components, random_state=42)
     lsa_vecs = svd_model.fit_transform(word_tfidf_matrix)
+    svd_model.components_ = svd_model.components_.astype(np.float32)
     dense_embeddings = normalize(lsa_vecs, norm="l2").astype(np.float32)
 
     # Save dense embeddings matrix (.npy) and index bundle (.pkl)
@@ -87,6 +90,8 @@ def build_embeddings_index() -> Dict[str, Any]:
     pkl_path = CHUNKING_DIR / "vector_index.pkl"
     report_path = CHUNKING_DIR / "embeddings_report.json"
 
+    npy_path.unlink(missing_ok=True)
+    pkl_path.unlink(missing_ok=True)
     np.save(npy_path, dense_embeddings)
 
     index_bundle = {

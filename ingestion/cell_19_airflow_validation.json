@@ -1,0 +1,27 @@
+{
+    "cell": "CELL 19",
+    "timestamp_utc": "2026-11-02T15:50:45.223721+00:00",
+    "runner_file": "/content/reports/pharma_ingestion_runner.py",
+    "dag_file": "/content/reports/airflow_pharma_pipeline_dag.py",
+    "runner_syntax_valid": true,
+    "dag_syntax_valid": true,
+    "required_tasks_present": {
+        "ingest_openfda_ndc": true,
+        "ingest_openfda_enforcement": true,
+        "ingest_rxnav_version": true
+    },
+    "runner_import_present": true,
+    "retry_configuration_present": true,
+    "airflow_installed_in_current_environment": false,
+    "airflow_version": null,
+    "airflow_test_status": "AIRFLOW_NOT_INSTALLED",
+    "deployment_status": "READY_FOR_AIRFLOW_IMPORT_TEST",
+    "dag_execution_status": "NOT_EXECUTED",
+    "limitations": [
+        "The DAG and runner were generated but not executed by Airflow.",
+        "The DAG uses manual scheduling (schedule=None).",
+        "The Airflow environment must have requests installed.",
+        "Both Python files must be in the Airflow DAG import path.",
+        "Configure PHARMA_BRONZE_PATH for the Airflow worker environment."
+    ]
+}

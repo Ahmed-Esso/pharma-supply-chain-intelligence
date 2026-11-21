@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-21T20:24:00.316217+00:00",
+  "generated_at_utc": "2026-11-21T20:45:11.597161+00:00",
   "owner": "Mayar Hany (Member 3 — Document Processing & RAG)",
   "clickup_task_id": "123u8tyngk5",
   "total_questions": 12,
@@ -9,8 +9,8 @@
     "overall_status_accuracy": 1.0,
     "document_hit_rate_at_1": 1.0,
     "document_hit_rate_at_3": 1.0,
-    "exact_page_citation_accuracy": 1.0,
-    "evidence_keyword_support_rate": 1.0,
+    "exact_page_citation_accuracy": 0.8889,
+    "evidence_keyword_support_rate": 0.8889,
     "unsupported_query_rejection_rate": 1.0
   },
   "results": [
@@ -25,22 +25,22 @@
       "doc_hit_at_3": true,
       "exact_page_or_record_cited": true,
       "keyword_evidence_verified": true,
-      "confidence_score": 0.6693,
+      "confidence_score": 0.6887,
       "cited_sources": [
         {
           "document_id": "DOC-WHO-EML-2023",
           "page": 11,
-          "score": 0.6693
+          "score": 0.6887
         },
         {
           "document_id": "DOC-WHO-EML-2023",
           "page": 11,
-          "score": 0.497
+          "score": 0.5018
         },
         {
           "document_id": "DOC-WHO-EML-2023",
           "page": 11,
-          "score": 0.4886
+          "score": 0.4984
         }
       ],
       "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **WHO Model List of Essential Medicines - 23rd List (2023)** (Source `DOC-WHO-EML-2023`, Page/Record 11): 6.2 Antibacterials | To assist in the development of tools for antibiotic stewardship at local, national and global levels a"
@@ -54,24 +54,24 @@
       "status_match": true,
       "doc_hit_at_1": true,
       "doc_hit_at_3": true,
-      "exact_page_or_record_cited": true,
-      "keyword_evidence_verified": true,
-      "confidence_score": 0.3587,
+      "exact_page_or_record_cited": false,
+      "keyword_evidence_verified": false,
+      "confidence_score": 0.3926,
       "cited_sources": [
         {
           "document_id": "DOC-WHO-EML-2023",
           "page": 3,
-          "score": 0.3587
+          "score": 0.3926
         },
         {
           "document_id": "DOC-WHO-EML-2023",
           "page": 3,
-          "score": 0.3508
+          "score": 0.3721
         },
         {
           "document_id": "DOC-WHO-EML-2023",
-          "page": 12,
-          "score": 0.305
+          "page": 22,
+          "score": 0.3093
         }
       ],
       "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **WHO Model List of Essential Medicines - 23rd List (2023)** (Source `DOC-WHO-EML-2023`, Page/Record 3): availability and price. | The a symbol indicates that there is an age or weight re striction on use of the medicine; details "
@@ -87,22 +87,22 @@
       "doc_hit_at_3": true,
       "exact_page_or_record_cited": true,
       "keyword_evidence_verified": true,
-      "confidence_score": 0.7668,
+      "confidence_score": 0.7946,
       "cited_sources": [
         {
           "document_id": "DOC-WHO-EML-2023",
           "page": 29,
-          "score": 0.7668
+          "score": 0.7946
         },
         {
           "document_id": "DOC-WHO-EML-2023",
           "page": 5,
-          "score": 0.7394
+          "score": 0.7752
         },
         {
           "document_id": "DOC-WHO-EML-2023",
           "page": 14,
-          "score": 0.4247
+          "score": 0.4437
         }
       ],
       "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **WHO Model List of Essential Medicines - 23rd List (2023)** (Source `DOC-WHO-EML-2023`, Page/Record 29): 7. ANTIMIGRAINE MEDICINES | 7.1 For treatment of acute attack | acetylsalicylic acid Tablet: 300 mg to 500 mg. | ibuprofen ["
@@ -118,22 +118,22 @@
       "doc_hit_at_3": true,
       "exact_page_or_record_cited": true,
       "keyword_evidence_verified": true,
-      "confidence_score": 0.5064,
+      "confidence_score": 0.5154,
       "cited_sources": [
         {
           "document_id": "DOC-WHO-EML-2023",
           "page": 9,
-          "score": 0.5064
+          "score": 0.5154
         },
         {
           "document_id": "DOC-WHO-EML-2023",
           "page": 59,
-          "score": 0.492
+          "score": 0.4983
         },
         {
           "document_id": "DOC-WHO-EML-2023",
           "page": 8,
-          "score": 0.4898
+          "score": 0.4978
         }
       ],
       "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **WHO Model List of Essential Medicines - 23rd List (2023)** (Source `DOC-WHO-EML-2023`, Page/Record 9): Complementary List | ethosuximide | Capsule: 250 mg. | Oral liquid: 250 mg/5 mL. | levetiracetam | Concentrate solution for i"
@@ -149,22 +149,22 @@
       "doc_hit_at_3": true,
       "exact_page_or_record_cited": true,
       "keyword_evidence_verified": true,
-      "confidence_score": 0.7358,
+      "confidence_score": 0.7354,
       "cited_sources": [
         {
           "document_id": "DOC-FDA-ENF-20261102",
           "page": 1,
-          "score": 0.7358
-        },
-        {
-          "document_id": "DOC-FDA-ENF-20261102",
-          "page": 76,
-          "score": 0.3282
+          "score": 0.7354
         },
         {
           "document_id": "DOC-FDA-ENF-20261102",
           "page": 63,
-          "score": 0.3066
+          "score": 0.3573
+        },
+        {
+          "document_id": "DOC-FDA-ENF-20261102",
+          "page": 76,
+          "score": 0.3567
         }
       ],
       "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **openFDA Drug Enforcement & Recall Reports Snapshot (100 Records) — Recall D-321-2016** (Source `DOC-FDA-ENF-20261102`, Page/Record 1): FDA Drug Recall Report — Recall Number: D-321-2016 | Classification: Class II | Status: Termi"
@@ -180,22 +180,22 @@
       "doc_hit_at_3": true,
       "exact_page_or_record_cited": true,
       "keyword_evidence_verified": true,
-      "confidence_score": 0.8725,
+      "confidence_score": 0.9077,
       "cited_sources": [
         {
           "document_id": "DOC-FDA-ENF-20261102",
           "page": 2,
-          "score": 0.8725
+          "score": 0.9077
         },
         {
           "document_id": "DOC-FDA-ENF-20261102",
           "page": 68,
-          "score": 0.2937
+          "score": 0.3789
         },
         {
           "document_id": "DOC-FDA-ENF-20261102",
           "page": 26,
-          "score": 0.2908
+          "score": 0.3253
         }
       ],
       "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **openFDA Drug Enforcement & Recall Reports Snapshot (100 Records) — Recall D-0080-2021** (Source `DOC-FDA-ENF-20261102`, Page/Record 2): FDA Drug Recall Report — Recall Number: D-0080-2021 | Classification: Class II | Status: Ong"
@@ -211,12 +211,17 @@
       "doc_hit_at_3": true,
       "exact_page_or_record_cited": true,
       "keyword_evidence_verified": true,
-      "confidence_score": 0.8818,
+      "confidence_score": 0.9015,
       "cited_sources": [
         {
           "document_id": "DOC-FDA-NDC-20261102",
           "page": 2,
-          "score": 0.8818
+          "score": 0.9015
+        },
+        {
+          "document_id": "DOC-FDA-NDC-20261102",
+          "page": 11,
+          "score": 0.26
         }
       ],
       "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **openFDA National Drug Code (NDC) Directory Snapshot (100 Records) — NDC 76176-135 (Vaporizing Chest Rub)** (Source `DOC-FDA-NDC-20261102`, Page/Record 2): FDA NDC Drug Directory Listing — Product NDC: 76176-135 | Brand Name: Vap"
@@ -232,17 +237,17 @@
       "doc_hit_at_3": true,
       "exact_page_or_record_cited": true,
       "keyword_evidence_verified": true,
-      "confidence_score": 0.9664,
+      "confidence_score": 0.9881,
       "cited_sources": [
         {
           "document_id": "DOC-FDA-NDC-20261102",
           "page": 1,
-          "score": 0.9664
+          "score": 0.9881
         },
         {
           "document_id": "DOC-FDA-NDC-20261102",
           "page": 9,
-          "score": 0.2539
+          "score": 0.2711
         }
       ],
       "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **openFDA National Drug Code (NDC) Directory Snapshot (100 Records) — NDC 76125-667 (Koate)** (Source `DOC-FDA-NDC-20261102`, Page/Record 1): FDA NDC Drug Directory Listing — Product NDC: 76125-667 | Brand Name: Koate | Generic Na"
@@ -279,7 +284,7 @@
       "actual_status": "no_answer",
       "status_match": true,
       "hallucination_prevented": true,
-      "confidence_score": 0.0196,
+      "confidence_score": 0.0184,
       "cited_sources": [],
       "answer_preview": "The available verified documents do not provide sufficient evidence to answer this question. No answer was generated to prevent unsupported claims."
     },
@@ -294,12 +299,12 @@
       "doc_hit_at_3": true,
       "exact_page_or_record_cited": true,
       "keyword_evidence_verified": true,
-      "confidence_score": 0.5545,
+      "confidence_score": 0.4982,
       "cited_sources": [
         {
           "document_id": "DOC-WHO-EML-2023",
           "page": 7,
-          "score": 0.5545
+          "score": 0.4982
         }
       ],
       "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **WHO Model List of Essential Medicines - 23rd List (2023)** (Source `DOC-WHO-EML-2023`, Page/Record 7): 3. ANTIALLERGICS AND MEDICINES USED IN ANAPHYLAXIS | dexamethasone Injection: 4 mg/mL (as disodium phosphate salt) in 1 mL am"

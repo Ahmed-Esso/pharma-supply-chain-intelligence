@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-21T20:23:57.667690+00:00",
+  "generated_at_utc": "2026-11-21T20:45:10.179099+00:00",
   "owner": "Mayar Hany (Member 3 — Document Processing & RAG)",
   "clickup_task_ids": [
     "123u8tyngjm",
@@ -24,10 +24,10 @@
       "scope_limitations": "Official global reference list of essential medicines, dosage forms, and therapeutic alternatives (AWaRe antibiotic groups). Does NOT represent live Egyptian market stock or local retail pricing.",
       "is_synthetic": false,
       "file_exists": true,
-      "file_path": "lakehouse\\bronze\\bronze_who_eml.parquet",
-      "absolute_path": "E:\\project jupyter notebook\\depi eng\\lakehouse\\bronze\\bronze_who_eml.parquet",
-      "file_size_bytes": 70967,
-      "sha256": "27970c8db9b59f36299a3985ba1efd4be330a90db584f74de5cf2734961de910",
+      "file_path": "lakehouse\\bronze\\who\\WHO_EML_2023.pdf",
+      "absolute_path": "E:\\project jupyter notebook\\depi eng\\lakehouse\\bronze\\who\\WHO_EML_2023.pdf",
+      "file_size_bytes": 926649,
+      "sha256": "9617e1dee5f9772ec1154d4c4453c761fe53483c821525b9d7d9dee66a4850a1",
       "inventory_status": "VERIFIED_READY"
     },
     {
