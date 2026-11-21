@@ -1,0 +1,165 @@
+[
+  {
+    "question_id": "Q01",
+    "category": "WHO_EML_PDF",
+    "question": "How does the WHO Essential Medicines List classify antibiotics under the AWaRe stewardship framework?",
+    "expected_status": "answered",
+    "expected_document_id": "DOC-WHO-EML-2023",
+    "expected_pages": [
+      11
+    ],
+    "expected_keywords": [
+      "Access",
+      "Watch",
+      "Reserve"
+    ]
+  },
+  {
+    "question_id": "Q02",
+    "category": "WHO_EML_PDF",
+    "question": "What are the recommended dosage forms and first-choice indications for amoxicillin in the WHO Essential Medicines List?",
+    "expected_status": "answered",
+    "expected_document_id": "DOC-WHO-EML-2023",
+    "expected_pages": [
+      12,
+      20
+    ],
+    "expected_keywords": [
+      "amoxicillin",
+      "pneumonia"
+    ]
+  },
+  {
+    "question_id": "Q03",
+    "category": "WHO_EML_PDF",
+    "question": "Why does WHO warn against having both 120 mg/5 mL and 125 mg/5 mL paracetamol oral liquid strengths on the same market?",
+    "expected_status": "answered",
+    "expected_document_id": "DOC-WHO-EML-2023",
+    "expected_pages": [
+      5
+    ],
+    "expected_keywords": [
+      "paracetamol",
+      "confusion"
+    ]
+  },
+  {
+    "question_id": "Q04",
+    "category": "WHO_EML_PDF",
+    "question": "What warning is given for valproic acid (sodium valproate) regarding pregnancy in the WHO Essential Medicines List?",
+    "expected_status": "answered",
+    "expected_document_id": "DOC-WHO-EML-2023",
+    "expected_pages": [
+      8,
+      9,
+      52
+    ],
+    "expected_keywords": [
+      "valproic",
+      "pregnancy",
+      "birth defects"
+    ]
+  },
+  {
+    "question_id": "Q05",
+    "category": "FDA_ENFORCEMENT_RECALL",
+    "question": "What caused the recall of Progesterone 100 mg/mL in Corn Oil Injection under recall number D-321-2016?",
+    "expected_status": "answered",
+    "expected_document_id": "DOC-FDA-ENF-20261102",
+    "expected_pages": [
+      1
+    ],
+    "expected_keywords": [
+      "Sterility",
+      "Progesterone",
+      "Kalman"
+    ]
+  },
+  {
+    "question_id": "Q06",
+    "category": "FDA_ENFORCEMENT_RECALL",
+    "question": "Why was Assured Instant Hand Sanitizer Aloe & Moisturizers recalled in Recall D-0080-2021 by Albek De Mexico?",
+    "expected_status": "answered",
+    "expected_document_id": "DOC-FDA-ENF-20261102",
+    "expected_pages": [
+      2
+    ],
+    "expected_keywords": [
+      "methanol",
+      "ethanol",
+      "CGMP"
+    ]
+  },
+  {
+    "question_id": "Q07",
+    "category": "FDA_NDC_CATALOG",
+    "question": "What are the active ingredients and labeler for Vaporizing Chest Rub (NDC 76176-135)?",
+    "expected_status": "answered",
+    "expected_document_id": "DOC-FDA-NDC-20261102",
+    "expected_pages": [
+      2
+    ],
+    "expected_keywords": [
+      "CAMPHOR",
+      "MENTHOL",
+      "EUCALYPTUS"
+    ]
+  },
+  {
+    "question_id": "Q08",
+    "category": "FDA_NDC_CATALOG",
+    "question": "Who is the manufacturer/labeler of Koate Antihemophilic Factor (Human) with NDC 76125-667?",
+    "expected_status": "answered",
+    "expected_document_id": "DOC-FDA-NDC-20261102",
+    "expected_pages": [
+      1
+    ],
+    "expected_keywords": [
+      "KEDRION",
+      "Koate",
+      "76125-667"
+    ]
+  },
+  {
+    "question_id": "Q09",
+    "category": "UNSUPPORTED_GUARDRAIL",
+    "question": "What is the current live stock inventory and retail price in EGP of Panadol Extra in Cairo pharmacies today?",
+    "expected_status": "no_answer",
+    "expected_document_id": null,
+    "expected_pages": [],
+    "expected_keywords": []
+  },
+  {
+    "question_id": "Q10",
+    "category": "UNSUPPORTED_GUARDRAIL",
+    "question": "How much does amoxicillin cost in Egyptian pounds in the local Egyptian pharmacy market right now?",
+    "expected_status": "no_answer",
+    "expected_document_id": null,
+    "expected_pages": [],
+    "expected_keywords": []
+  },
+  {
+    "question_id": "Q11",
+    "category": "UNSUPPORTED_GUARDRAIL",
+    "question": "What is the current Bitcoin cryptocurrency exchange rate and stock market index today?",
+    "expected_status": "no_answer",
+    "expected_document_id": null,
+    "expected_pages": [],
+    "expected_keywords": []
+  },
+  {
+    "question_id": "Q12",
+    "category": "WHO_EML_PDF",
+    "question": "Which antidotes are listed in section 4.2 of the WHO Essential Medicines List for poisonings?",
+    "expected_status": "answered",
+    "expected_document_id": "DOC-WHO-EML-2023",
+    "expected_pages": [
+      7
+    ],
+    "expected_keywords": [
+      "acetylcysteine",
+      "naloxone",
+      "atropine"
+    ]
+  }
+]

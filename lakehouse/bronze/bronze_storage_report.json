@@ -1,0 +1,34 @@
+{
+  "generated_at_utc": "2026-11-21T05:14:11.035222+00:00",
+  "owner": "Ahmed Essam (Member 2 — Lakehouse & Data Quality)",
+  "clickup_task_id": "123u8tync4t",
+  "storage_engine": "PyArrow Parquet (Snappy) / Databricks Delta Compatible",
+  "total_bronze_tables": 3,
+  "total_bronze_records": 269,
+  "tables": [
+    {
+      "table_name": "bronze_openfda_ndc",
+      "source_id": "SRC-001",
+      "input_file": "member_1_deliverables\\bronze_live_api\\openfda_ndc_20261102T155044Z.json",
+      "output_parquet": "lakehouse\\bronze\\bronze_openfda_ndc.parquet",
+      "record_count": 100,
+      "columns_count": 23
+    },
+    {
+      "table_name": "bronze_openfda_enforcement",
+      "source_id": "SRC-002",
+      "input_file": "member_1_deliverables\\bronze_live_api\\openfda_enforcement_20261102T155044Z.json",
+      "output_parquet": "lakehouse\\bronze\\bronze_openfda_enforcement.parquet",
+      "record_count": 100,
+      "columns_count": 27
+    },
+    {
+      "table_name": "bronze_who_eml",
+      "source_id": "SRC-007",
+      "input_file": "lakehouse\\bronze\\who\\who_eml_raw.json",
+      "output_parquet": "lakehouse\\bronze\\bronze_who_eml.parquet",
+      "record_count": 69,
+      "columns_count": 8
+    }
+  ]
+}
