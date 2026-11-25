@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-21T20:57:18.176317+00:00",
+  "generated_at_utc": "2026-11-25T17:58:18.609248+00:00",
   "owner": "Mayar Hany (Member 3 — Document Processing & RAG)",
   "clickup_task_id": "123u8tyngk5",
   "total_questions": 12,
@@ -9,8 +9,8 @@
     "overall_status_accuracy": 1.0,
     "document_hit_rate_at_1": 1.0,
     "document_hit_rate_at_3": 1.0,
-    "exact_page_citation_accuracy": 0.8889,
-    "evidence_keyword_support_rate": 0.8889,
+    "exact_page_citation_accuracy": 1.0,
+    "evidence_keyword_support_rate": 1.0,
     "unsupported_query_rejection_rate": 1.0
   },
   "results": [
@@ -25,25 +25,20 @@
       "doc_hit_at_3": true,
       "exact_page_or_record_cited": true,
       "keyword_evidence_verified": true,
-      "confidence_score": 0.6887,
+      "confidence_score": 0.688,
       "cited_sources": [
         {
           "document_id": "DOC-WHO-EML-2023",
           "page": 11,
-          "score": 0.6887
+          "score": 0.688
         },
         {
           "document_id": "DOC-WHO-EML-2023",
-          "page": 11,
-          "score": 0.5018
-        },
-        {
-          "document_id": "DOC-WHO-EML-2023",
-          "page": 11,
-          "score": 0.4984
+          "page": 12,
+          "score": 0.2573
         }
       ],
-      "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **WHO Model List of Essential Medicines - 23rd List (2023)** (Source `DOC-WHO-EML-2023`, Page/Record 11): 6.2 Antibacterials | To assist in the development of tools for antibiotic stewardship at local, national and global levels a"
+      "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **WHO Model List of Essential Medicines - 23rd List (2023)** (Source `DOC-WHO-EML-2023`, Page/Record 11): page 8 | 6.2 Antibacterials | To assist in the development of tools for antibiotic stewardship at local, national and global"
     },
     {
       "question_id": "Q02",
@@ -54,27 +49,27 @@
       "status_match": true,
       "doc_hit_at_1": true,
       "doc_hit_at_3": true,
-      "exact_page_or_record_cited": false,
-      "keyword_evidence_verified": false,
-      "confidence_score": 0.3926,
+      "exact_page_or_record_cited": true,
+      "keyword_evidence_verified": true,
+      "confidence_score": 0.567,
       "cited_sources": [
         {
           "document_id": "DOC-WHO-EML-2023",
-          "page": 3,
-          "score": 0.3926
+          "page": 12,
+          "score": 0.567
         },
         {
           "document_id": "DOC-WHO-EML-2023",
-          "page": 3,
-          "score": 0.3721
+          "page": 67,
+          "score": 0.5237
         },
         {
-          "document_id": "DOC-WHO-EML-2023",
-          "page": 22,
-          "score": 0.3093
+          "document_id": "DOC-FDA-NDC-20261102",
+          "page": 6,
+          "score": 0.514
         }
       ],
-      "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **WHO Model List of Essential Medicines - 23rd List (2023)** (Source `DOC-WHO-EML-2023`, Page/Record 3): availability and price. | The a symbol indicates that there is an age or weight re striction on use of the medicine; details "
+      "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **WHO Model List of Essential Medicines - 23rd List (2023)** (Source `DOC-WHO-EML-2023`, Page/Record 12): page 9 | − Sepsis in neonates and children [c] | amoxicillin | Powder for injection: 250 mg; 500 mg; 1 g (as sodium) in vial"
     },
     {
       "question_id": "Q03",
@@ -87,25 +82,25 @@
       "doc_hit_at_3": true,
       "exact_page_or_record_cited": true,
       "keyword_evidence_verified": true,
-      "confidence_score": 0.7946,
+      "confidence_score": 0.7456,
       "cited_sources": [
         {
           "document_id": "DOC-WHO-EML-2023",
           "page": 29,
-          "score": 0.7946
+          "score": 0.7456
         },
         {
           "document_id": "DOC-WHO-EML-2023",
           "page": 5,
-          "score": 0.7752
+          "score": 0.7261
         },
         {
           "document_id": "DOC-WHO-EML-2023",
           "page": 14,
-          "score": 0.4437
+          "score": 0.4125
         }
       ],
-      "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **WHO Model List of Essential Medicines - 23rd List (2023)** (Source `DOC-WHO-EML-2023`, Page/Record 29): 7. ANTIMIGRAINE MEDICINES | 7.1 For treatment of acute attack | acetylsalicylic acid Tablet: 300 mg to 500 mg. | ibuprofen ["
+      "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **WHO Model List of Essential Medicines - 23rd List (2023)** (Source `DOC-WHO-EML-2023`, Page/Record 29): page 26 | acetylsalicylic acid | Tablet: 300 mg to 500 mg. | ibuprofen [c] | Oral liquid: 100 mg/5 mL [c]. | Tablet: 200 mg;"
     },
     {
       "question_id": "Q04",
@@ -118,25 +113,25 @@
       "doc_hit_at_3": true,
       "exact_page_or_record_cited": true,
       "keyword_evidence_verified": true,
-      "confidence_score": 0.5154,
+      "confidence_score": 0.5699,
       "cited_sources": [
         {
           "document_id": "DOC-WHO-EML-2023",
           "page": 9,
-          "score": 0.5154
-        },
-        {
-          "document_id": "DOC-WHO-EML-2023",
-          "page": 59,
-          "score": 0.4983
+          "score": 0.5699
         },
         {
           "document_id": "DOC-WHO-EML-2023",
           "page": 8,
-          "score": 0.4978
+          "score": 0.5524
+        },
+        {
+          "document_id": "DOC-WHO-EML-2023",
+          "page": 59,
+          "score": 0.5509
         }
       ],
-      "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **WHO Model List of Essential Medicines - 23rd List (2023)** (Source `DOC-WHO-EML-2023`, Page/Record 9): Complementary List | ethosuximide | Capsule: 250 mg. | Oral liquid: 250 mg/5 mL. | levetiracetam | Concentrate solution for i"
+      "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **WHO Model List of Essential Medicines - 23rd List (2023)** (Source `DOC-WHO-EML-2023`, Page/Record 9): page 6 | bag. | valproic acid (sodium valproate)* | *Avoid use in pregnancy and in women and | girls of child-bearing potenti"
     },
     {
       "question_id": "Q05",
@@ -164,7 +159,7 @@
         {
           "document_id": "DOC-FDA-ENF-20261102",
           "page": 76,
-          "score": 0.3567
+          "score": 0.357
         }
       ],
       "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **openFDA Drug Enforcement & Recall Reports Snapshot (100 Records) — Recall D-321-2016** (Source `DOC-FDA-ENF-20261102`, Page/Record 1): FDA Drug Recall Report — Recall Number: D-321-2016 | Classification: Class II | Status: Termi"
@@ -180,22 +175,22 @@
       "doc_hit_at_3": true,
       "exact_page_or_record_cited": true,
       "keyword_evidence_verified": true,
-      "confidence_score": 0.9077,
+      "confidence_score": 0.9071,
       "cited_sources": [
         {
           "document_id": "DOC-FDA-ENF-20261102",
           "page": 2,
-          "score": 0.9077
+          "score": 0.9071
         },
         {
           "document_id": "DOC-FDA-ENF-20261102",
           "page": 68,
-          "score": 0.3789
+          "score": 0.3778
         },
         {
           "document_id": "DOC-FDA-ENF-20261102",
           "page": 26,
-          "score": 0.3253
+          "score": 0.3236
         }
       ],
       "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **openFDA Drug Enforcement & Recall Reports Snapshot (100 Records) — Recall D-0080-2021** (Source `DOC-FDA-ENF-20261102`, Page/Record 2): FDA Drug Recall Report — Recall Number: D-0080-2021 | Classification: Class II | Status: Ong"
@@ -211,17 +206,12 @@
       "doc_hit_at_3": true,
       "exact_page_or_record_cited": true,
       "keyword_evidence_verified": true,
-      "confidence_score": 0.9015,
+      "confidence_score": 0.9007,
       "cited_sources": [
         {
           "document_id": "DOC-FDA-NDC-20261102",
           "page": 2,
-          "score": 0.9015
-        },
-        {
-          "document_id": "DOC-FDA-NDC-20261102",
-          "page": 11,
-          "score": 0.26
+          "score": 0.9007
         }
       ],
       "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **openFDA National Drug Code (NDC) Directory Snapshot (100 Records) — NDC 76176-135 (Vaporizing Chest Rub)** (Source `DOC-FDA-NDC-20261102`, Page/Record 2): FDA NDC Drug Directory Listing — Product NDC: 76176-135 | Brand Name: Vap"
@@ -237,17 +227,12 @@
       "doc_hit_at_3": true,
       "exact_page_or_record_cited": true,
       "keyword_evidence_verified": true,
-      "confidence_score": 0.9881,
+      "confidence_score": 0.985,
       "cited_sources": [
         {
           "document_id": "DOC-FDA-NDC-20261102",
           "page": 1,
-          "score": 0.9881
-        },
-        {
-          "document_id": "DOC-FDA-NDC-20261102",
-          "page": 9,
-          "score": 0.2711
+          "score": 0.985
         }
       ],
       "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **openFDA National Drug Code (NDC) Directory Snapshot (100 Records) — NDC 76125-667 (Koate)** (Source `DOC-FDA-NDC-20261102`, Page/Record 1): FDA NDC Drug Directory Listing — Product NDC: 76125-667 | Brand Name: Koate | Generic Na"
@@ -262,7 +247,7 @@
       "hallucination_prevented": true,
       "confidence_score": 0.0,
       "cited_sources": [],
-      "answer_preview": "The available verified documents (WHO Essential Medicines List 2023 and U.S. openFDA Enforcement/NDC records) do not contain live Egyptian pharmacy inventory, local retail drug pricing in EGP, or real-time local stock levels. Per project data governance rules (Zero-Mock Policy), the system will not "
+      "answer_preview": "The available verified documents (WHO Essential Medicines List 2023 and U.S. openFDA Enforcement/NDC records) do not contain live local or international pharmacy inventory, retail drug pricing (in EGP or any currency), or real-time stock levels. Per project data governance rules (Zero-Mock Policy), "
     },
     {
       "question_id": "Q10",
@@ -274,7 +259,7 @@
       "hallucination_prevented": true,
       "confidence_score": 0.0,
       "cited_sources": [],
-      "answer_preview": "The available verified documents (WHO Essential Medicines List 2023 and U.S. openFDA Enforcement/NDC records) do not contain live Egyptian pharmacy inventory, local retail drug pricing in EGP, or real-time local stock levels. Per project data governance rules (Zero-Mock Policy), the system will not "
+      "answer_preview": "The available verified documents (WHO Essential Medicines List 2023 and U.S. openFDA Enforcement/NDC records) do not contain live local or international pharmacy inventory, retail drug pricing (in EGP or any currency), or real-time stock levels. Per project data governance rules (Zero-Mock Policy), "
     },
     {
       "question_id": "Q11",
@@ -299,15 +284,20 @@
       "doc_hit_at_3": true,
       "exact_page_or_record_cited": true,
       "keyword_evidence_verified": true,
-      "confidence_score": 0.4982,
+      "confidence_score": 0.4971,
       "cited_sources": [
         {
           "document_id": "DOC-WHO-EML-2023",
           "page": 7,
-          "score": 0.4982
+          "score": 0.4971
+        },
+        {
+          "document_id": "DOC-WHO-EML-2023",
+          "page": 22,
+          "score": 0.2678
         }
       ],
-      "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **WHO Model List of Essential Medicines - 23rd List (2023)** (Source `DOC-WHO-EML-2023`, Page/Record 7): 3. ANTIALLERGICS AND MEDICINES USED IN ANAPHYLAXIS | dexamethasone Injection: 4 mg/mL (as disodium phosphate salt) in 1 mL am"
+      "answer_preview": "Based on the verified regulatory documents in the knowledge corpus:\n- **WHO Model List of Essential Medicines - 23rd List (2023)** (Source `DOC-WHO-EML-2023`, Page/Record 7): page 4 | Tablet: 5 mg; 25 mg. | 4. ANTIDOTES AND OTHER SUBSTANCES USED IN POISONINGS | 4.1 Non-specific | charcoal, activated"
     }
   ]
 }

@@ -343,9 +343,9 @@ def extract_fda_ndc_records(
     return records, stats
 
 
-def run_extraction_pipeline() -> Dict[str, Any]:
-    """Run full inventory + text extraction + OCR fallback and save artifacts."""
-    inventory = build_document_inventory()
+def run_extraction_pipeline(persist: bool = True) -> Dict[str, Any]:
+    """Run full inventory + text extraction + OCR fallback and optionally save artifacts."""
+    inventory = build_document_inventory(persist=persist)
     all_units: List[Dict[str, Any]] = []
     source_summaries: List[Dict[str, Any]] = []
 
@@ -353,7 +353,7 @@ def run_extraction_pipeline() -> Dict[str, Any]:
         if not doc["file_exists"]:
             continue
 
-        file_path = Path(doc["absolute_path"])
+        file_path = (REPO_ROOT / doc["file_path"]).resolve()
         doc_id = doc["document_id"]
         title = doc["title"]
         url = doc["source_url"]
@@ -390,46 +390,8 @@ def run_extraction_pipeline() -> Dict[str, Any]:
             all_units.extend(units)
             source_summaries.append(stats)
 
-    EXTRACTION_DIR.mkdir(parents=True, exist_ok=True)
-    extracted_path = EXTRACTION_DIR / "extracted_documents.json"
-    report_path = EXTRACTION_DIR / "extraction_report.json"
-
-    with open(extracted_path, "w", encoding="utf-8") as f:
-        json.dump(all_units, f, ensure_ascii=False, indent=2)
-
-    # Also regenerate lakehouse/gold/gold_rag_knowledge_corpus.csv so Gold layer is populated
     gold_dir = REPO_ROOT / "lakehouse" / "gold"
-    gold_dir.mkdir(parents=True, exist_ok=True)
     gold_corpus_csv = gold_dir / "gold_rag_knowledge_corpus.csv"
-
-    with open(gold_corpus_csv, "w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(
-            f,
-            fieldnames=["doc_id", "source_type", "content", "metadata"],
-        )
-        writer.writeheader()
-        for u in all_units:
-            if not u["is_usable"]:
-                continue
-            meta_obj = {
-                "document_id": u["document_id"],
-                "title": u["title"],
-                "publisher": u["publisher"],
-                "source_url": u["source_url"],
-                "page_or_record": u["page_number"],
-                "section_hint": u["section_hint"],
-                "extraction_method": u["extraction_method"],
-            }
-            if "metadata_extra" in u:
-                meta_obj.update(u["metadata_extra"])
-            writer.writerow(
-                {
-                    "doc_id": u["unit_id"],
-                    "source_type": u["document_type"],
-                    "content": u["text"],
-                    "metadata": json.dumps(meta_obj, ensure_ascii=False),
-                }
-            )
 
     report = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -441,11 +403,51 @@ def run_extraction_pipeline() -> Dict[str, Any]:
         "usable_units": sum(1 for u in all_units if u["is_usable"]),
         "unusable_or_blank_units": sum(1 for u in all_units if not u["is_usable"]),
         "total_characters_extracted": sum(u["char_count"] for u in all_units),
-        "gold_corpus_csv_path": str(gold_corpus_csv.relative_to(REPO_ROOT)),
+        "gold_corpus_csv_path": gold_corpus_csv.relative_to(REPO_ROOT).as_posix(),
         "source_breakdown": source_summaries,
     }
-    with open(report_path, "w", encoding="utf-8") as f:
-        json.dump(report, f, ensure_ascii=False, indent=2)
+
+    if persist:
+        EXTRACTION_DIR.mkdir(parents=True, exist_ok=True)
+        extracted_path = EXTRACTION_DIR / "extracted_documents.json"
+        report_path = EXTRACTION_DIR / "extraction_report.json"
+
+        with open(extracted_path, "w", encoding="utf-8") as f:
+            json.dump(all_units, f, ensure_ascii=False, indent=2)
+
+        # Also regenerate lakehouse/gold/gold_rag_knowledge_corpus.csv so Gold layer is populated
+        gold_dir.mkdir(parents=True, exist_ok=True)
+        with open(gold_corpus_csv, "w", encoding="utf-8", newline="") as f:
+            writer = csv.DictWriter(
+                f,
+                fieldnames=["doc_id", "source_type", "content", "metadata"],
+            )
+            writer.writeheader()
+            for u in all_units:
+                if not u["is_usable"]:
+                    continue
+                meta_obj = {
+                    "document_id": u["document_id"],
+                    "title": u["title"],
+                    "publisher": u["publisher"],
+                    "source_url": u["source_url"],
+                    "page_or_record": u["page_number"],
+                    "section_hint": u["section_hint"],
+                    "extraction_method": u["extraction_method"],
+                }
+                if "metadata_extra" in u:
+                    meta_obj.update(u["metadata_extra"])
+                writer.writerow(
+                    {
+                        "doc_id": u["unit_id"],
+                        "source_type": u["document_type"],
+                        "content": u["text"],
+                        "metadata": json.dumps(meta_obj, ensure_ascii=False),
+                    }
+                )
+
+        with open(report_path, "w", encoding="utf-8") as f:
+            json.dump(report, f, ensure_ascii=False, indent=2)
 
     return report
 

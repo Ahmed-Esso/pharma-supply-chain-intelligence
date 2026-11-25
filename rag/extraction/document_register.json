@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-21T20:57:16.661784+00:00",
+  "generated_at_utc": "2026-11-25T17:58:17.605687+00:00",
   "owner": "Mayar Hany (Member 3 — Document Processing & RAG)",
   "clickup_task_ids": [
     "123u8tyngjm",
@@ -24,8 +24,7 @@
       "scope_limitations": "Official global reference list of essential medicines, dosage forms, and therapeutic alternatives (AWaRe antibiotic groups). Does NOT represent live Egyptian market stock or local retail pricing.",
       "is_synthetic": false,
       "file_exists": true,
-      "file_path": "lakehouse\\bronze\\who\\WHO_EML_2023.pdf",
-      "absolute_path": "E:\\project jupyter notebook\\depi eng\\lakehouse\\bronze\\who\\WHO_EML_2023.pdf",
+      "file_path": "lakehouse/bronze/who/WHO_EML_2023.pdf",
       "file_size_bytes": 926649,
       "sha256": "9617e1dee5f9772ec1154d4c4453c761fe53483c821525b9d7d9dee66a4850a1",
       "inventory_status": "VERIFIED_READY"
@@ -45,8 +44,7 @@
       "scope_limitations": "Verified FDA drug recall enforcement records (reasons for recall, CGMP deviations, sterility issues, classifications Class I/II/III, lot codes). Reflects U.S. FDA regulatory actions, not Egyptian Drug Authority (EDA) local recalls.",
       "is_synthetic": false,
       "file_exists": true,
-      "file_path": "lakehouse\\bronze\\openfda_enforcement_20261102T155044Z.json",
-      "absolute_path": "E:\\project jupyter notebook\\depi eng\\lakehouse\\bronze\\openfda_enforcement_20261102T155044Z.json",
+      "file_path": "lakehouse/bronze/openfda_enforcement_20261102T155044Z.json",
       "file_size_bytes": 171285,
       "sha256": "2913385924a3d7d3dc7f3757259d7e03444ce47396403612a4706b5ae8b09515",
       "inventory_status": "VERIFIED_READY"
@@ -66,8 +64,7 @@
       "scope_limitations": "Official product directory covering brand names, generic names, active ingredients, strengths, dosage forms, and packaging descriptions. Inclusion in NDC does not verify current commercial availability or local inventory.",
       "is_synthetic": false,
       "file_exists": true,
-      "file_path": "lakehouse\\bronze\\openfda_ndc_20261102T155044Z.json",
-      "absolute_path": "E:\\project jupyter notebook\\depi eng\\lakehouse\\bronze\\openfda_ndc_20261102T155044Z.json",
+      "file_path": "lakehouse/bronze/openfda_ndc_20261102T155044Z.json",
       "file_size_bytes": 154110,
       "sha256": "667ef59bbf3a1a8b6920e2be0f81fb6f98af8f6e4d617abdf112a63afadcf89f",
       "inventory_status": "VERIFIED_READY"

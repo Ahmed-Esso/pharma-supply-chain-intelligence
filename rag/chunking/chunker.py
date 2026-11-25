@@ -72,13 +72,14 @@ def split_text_preserving_lines(
 def run_chunking_pipeline(
     chunk_size: int = DEFAULT_CHUNK_SIZE,
     chunk_overlap: int = DEFAULT_CHUNK_OVERLAP,
+    persist: bool = True,
 ) -> Dict[str, Any]:
     """Load extracted_documents.json, produce chunks.json and chunking_report.json."""
     extracted_path = EXTRACTION_DIR / "extracted_documents.json"
     if not extracted_path.exists():
         from rag.extraction.extractor import run_extraction_pipeline
 
-        run_extraction_pipeline()
+        run_extraction_pipeline(persist=persist)
 
     with open(extracted_path, "r", encoding="utf-8") as f:
         units: List[Dict[str, Any]] = json.load(f)
@@ -132,12 +133,8 @@ def run_chunking_pipeline(
             all_chunks.append(chunk_record)
             by_source[doc_id] = by_source.get(doc_id, 0) + 1
 
-    CHUNKING_DIR.mkdir(parents=True, exist_ok=True)
     chunks_path = CHUNKING_DIR / "chunks.json"
     report_path = CHUNKING_DIR / "chunking_report.json"
-
-    with open(chunks_path, "w", encoding="utf-8") as f:
-        json.dump(all_chunks, f, ensure_ascii=False, indent=2)
 
     report = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -151,10 +148,16 @@ def run_chunking_pipeline(
             sum(c["char_count"] for c in all_chunks) / max(len(all_chunks), 1), 1
         ),
         "chunks_per_document": by_source,
-        "chunks_file": str(chunks_path.relative_to(REPO_ROOT)),
+        "chunks_file": chunks_path.relative_to(REPO_ROOT).as_posix(),
     }
-    with open(report_path, "w", encoding="utf-8") as f:
-        json.dump(report, f, ensure_ascii=False, indent=2)
+
+    if persist:
+        CHUNKING_DIR.mkdir(parents=True, exist_ok=True)
+        with open(chunks_path, "w", encoding="utf-8") as f:
+            json.dump(all_chunks, f, ensure_ascii=False, indent=2)
+
+        with open(report_path, "w", encoding="utf-8") as f:
+            json.dump(report, f, ensure_ascii=False, indent=2)
 
     return report
 

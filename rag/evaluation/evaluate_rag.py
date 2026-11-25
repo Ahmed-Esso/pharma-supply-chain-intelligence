@@ -135,15 +135,16 @@ def get_benchmark_questions() -> List[Dict[str, Any]]:
     ]
 
 
-def run_rag_evaluation() -> Dict[str, Any]:
-    """Run all benchmark questions against RAGPipeline and compute evaluation metrics."""
+def run_rag_evaluation(persist: bool = True) -> Dict[str, Any]:
+    """Run all benchmark questions against RAGPipeline and optionally save evaluation reports."""
     pipeline = RAGPipeline()
     questions = get_benchmark_questions()
 
-    EVALUATION_DIR.mkdir(parents=True, exist_ok=True)
-    bank_path = EVALUATION_DIR / "test_questions_bank.json"
-    with open(bank_path, "w", encoding="utf-8") as f:
-        json.dump(questions, f, ensure_ascii=False, indent=2)
+    if persist:
+        EVALUATION_DIR.mkdir(parents=True, exist_ok=True)
+        bank_path = EVALUATION_DIR / "test_questions_bank.json"
+        with open(bank_path, "w", encoding="utf-8") as f:
+            json.dump(questions, f, ensure_ascii=False, indent=2)
 
     eval_results: List[Dict[str, Any]] = []
     status_correct_count = 0
@@ -261,9 +262,10 @@ def run_rag_evaluation() -> Dict[str, Any]:
         "results": eval_results,
     }
 
-    report_json_path = EVALUATION_DIR / "rag_evaluation_report.json"
-    with open(report_json_path, "w", encoding="utf-8") as f:
-        json.dump(summary, f, ensure_ascii=False, indent=2)
+    if persist:
+        report_json_path = EVALUATION_DIR / "rag_evaluation_report.json"
+        with open(report_json_path, "w", encoding="utf-8") as f:
+            json.dump(summary, f, ensure_ascii=False, indent=2)
 
     # Also write human-readable Markdown report
     md_lines = [
@@ -304,9 +306,10 @@ def run_rag_evaluation() -> Dict[str, Any]:
             f"| `{r['question_id']}` | {r['category']} | `{r['expected_status']}` | `{r['actual_status']}` | **{verified_badge}** | {cited_str} |"
         )
 
-    md_path = EVALUATION_DIR / "RAG_EVALUATION_SUMMARY.md"
-    with open(md_path, "w", encoding="utf-8") as f:
-        f.write("\n".join(md_lines) + "\n")
+    if persist:
+        md_path = EVALUATION_DIR / "RAG_EVALUATION_SUMMARY.md"
+        with open(md_path, "w", encoding="utf-8") as f:
+            f.write("\n".join(md_lines) + "\n")
 
     return summary
 

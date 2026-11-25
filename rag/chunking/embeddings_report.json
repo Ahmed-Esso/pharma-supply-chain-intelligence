@@ -1,13 +1,14 @@
 {
-  "generated_at_utc": "2026-11-21T20:57:17.826117+00:00",
+  "generated_at_utc": "2026-11-25T17:58:18.460872+00:00",
   "owner": "Mayar Hany (Member 3 — Document Processing & RAG)",
   "clickup_task_id": "123u8tyngjp",
   "embedding_model": "sklearn-hybrid-lsa-128d",
+  "embedding_backend": "sklearn-lsa",
   "num_vectors": 390,
   "embedding_dimension": 128,
   "vocabulary_size_words": 8000,
-  "explained_variance_ratio_sum": 0.5861,
-  "embeddings_matrix_file": "rag\\chunking\\embeddings_matrix.npy",
-  "vector_index_file": "rag\\chunking\\vector_index.pkl",
+  "explained_variance_ratio_sum": 0.586,
+  "embeddings_matrix_file": "rag/chunking/embeddings_matrix.npy",
+  "vector_index_file": "rag/chunking/vector_index.pkl",
   "all_vectors_normalized": true
 }

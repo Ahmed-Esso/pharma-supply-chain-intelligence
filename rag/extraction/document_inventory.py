@@ -107,8 +107,8 @@ def get_source_documents_spec() -> List[Dict[str, Any]]:
     ]
 
 
-def build_document_inventory() -> Dict[str, Any]:
-    """Validate all source documents and save document_register.csv & .json."""
+def build_document_inventory(persist: bool = True) -> Dict[str, Any]:
+    """Validate all source documents and optionally save document_register.csv & .json."""
     specs = get_source_documents_spec()
     inventory_rows: List[Dict[str, Any]] = []
 
@@ -123,9 +123,9 @@ def build_document_inventory() -> Dict[str, Any]:
         file_size = resolved_path.stat().st_size if exists and resolved_path else 0
         sha256 = compute_sha256(resolved_path) if exists and resolved_path else ""
         rel_path = (
-            str(resolved_path.relative_to(REPO_ROOT))
+            resolved_path.relative_to(REPO_ROOT).as_posix()
             if exists and resolved_path and resolved_path.is_relative_to(REPO_ROOT)
-            else (str(resolved_path) if resolved_path else "NOT_FOUND")
+            else (resolved_path.as_posix() if resolved_path else "NOT_FOUND")
         )
 
         row = {
@@ -144,22 +144,11 @@ def build_document_inventory() -> Dict[str, Any]:
             "is_synthetic": spec["is_synthetic"],
             "file_exists": exists,
             "file_path": rel_path,
-            "absolute_path": str(resolved_path) if resolved_path else "",
             "file_size_bytes": file_size,
             "sha256": sha256,
             "inventory_status": "VERIFIED_READY" if exists and file_size > 0 else "MISSING",
         }
         inventory_rows.append(row)
-
-    EXTRACTION_DIR.mkdir(parents=True, exist_ok=True)
-    csv_path = EXTRACTION_DIR / "document_register.csv"
-    json_path = EXTRACTION_DIR / "document_register.json"
-
-    fieldnames = list(inventory_rows[0].keys())
-    with open(csv_path, "w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(inventory_rows)
 
     payload = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -170,8 +159,20 @@ def build_document_inventory() -> Dict[str, Any]:
         "zero_mock_policy_enforced": True,
         "documents": inventory_rows,
     }
-    with open(json_path, "w", encoding="utf-8") as f:
-        json.dump(payload, f, ensure_ascii=False, indent=2)
+
+    if persist:
+        EXTRACTION_DIR.mkdir(parents=True, exist_ok=True)
+        csv_path = EXTRACTION_DIR / "document_register.csv"
+        json_path = EXTRACTION_DIR / "document_register.json"
+
+        fieldnames = list(inventory_rows[0].keys())
+        with open(csv_path, "w", encoding="utf-8", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(inventory_rows)
+
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(payload, f, ensure_ascii=False, indent=2)
 
     return payload
 

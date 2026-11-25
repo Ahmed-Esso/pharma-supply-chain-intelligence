@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-11-21T20:57:16.708768+00:00",
+  "generated_at_utc": "2026-11-25T17:58:17.839770+00:00",
   "owner": "Mayar Hany (Member 3 — Document Processing & RAG)",
   "clickup_task_id": "123u8tyngjn",
   "ocr_fallback_engine": "baidu/Unlimited-OCR",
@@ -7,8 +7,8 @@
   "total_extracted_units": 271,
   "usable_units": 269,
   "unusable_or_blank_units": 2,
-  "total_characters_extracted": 286772,
-  "gold_corpus_csv_path": "lakehouse\\gold\\gold_rag_knowledge_corpus.csv",
+  "total_characters_extracted": 287409,
+  "gold_corpus_csv_path": "lakehouse/gold/gold_rag_knowledge_corpus.csv",
   "source_breakdown": [
     {
       "document_id": "DOC-WHO-EML-2023",
@@ -18,8 +18,8 @@
       "ocr_fallback_engine": "baidu/Unlimited-OCR",
       "empty_or_cover_pages": 2,
       "usable_pages": 69,
-      "total_extracted_chars": 162367,
-      "extraction_engine": "pypdf (WHO_EML_2023.pdf)"
+      "total_extracted_chars": 163004,
+      "extraction_engine": "PyMuPDF (fitz)"
     },
     {
       "document_id": "DOC-FDA-ENF-20261102",

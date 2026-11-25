@@ -10,6 +10,7 @@ Covers ClickUp Tasks:
 
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 
@@ -28,7 +29,7 @@ from rag.retrieval import ask_question
 
 
 def test_task1_document_inventory() -> None:
-    inv = build_document_inventory()
+    inv = build_document_inventory(persist=False)
     assert inv["total_registered_sources"] == 3
     assert inv["verified_sources_count"] == 3
     assert (EXTRACTION_DIR / "document_register.csv").exists()
@@ -38,10 +39,17 @@ def test_task1_document_inventory() -> None:
         assert doc["file_size_bytes"] > 0
         assert len(doc["sha256"]) == 64
         assert doc["is_synthetic"] is False
+        assert "absolute_path" not in doc
+        assert "\\" not in doc["file_path"]
+
+    persisted = json.loads((EXTRACTION_DIR / "document_register.json").read_text(encoding="utf-8"))
+    for doc in persisted["documents"]:
+        assert "absolute_path" not in doc
+        assert "\\" not in doc["file_path"]
 
 
 def test_task2_extraction_and_ocr_fallback() -> None:
-    rep = run_extraction_pipeline()
+    rep = run_extraction_pipeline(persist=False)
     assert rep["total_extracted_units"] == 271
     assert rep["usable_units"] == 269
     assert rep["ocr_fallback_engine"] == "baidu/Unlimited-OCR"
@@ -55,11 +63,11 @@ def test_task2_extraction_and_ocr_fallback() -> None:
 
 
 def test_task3_chunking_and_embeddings() -> None:
-    chk = run_chunking_pipeline()
+    chk = run_chunking_pipeline(persist=False)
     assert chk["total_chunks_generated"] >= 269
     assert (CHUNKING_DIR / "chunks.json").exists()
 
-    emb = build_embeddings_index()
+    emb = build_embeddings_index(persist=False)
     assert emb["num_vectors"] == chk["total_chunks_generated"]
     assert emb["embedding_dimension"] > 0
 
@@ -88,16 +96,47 @@ def test_task4_grounded_retrieval_and_citations() -> None:
         for s in res_who["sources"]
     )
 
+    res_amox = ask_question(
+        "What are the recommended dosage forms and first-choice indications for amoxicillin in the WHO Essential Medicines List?"
+    )
+    assert res_amox["status"] == "answered"
+    assert any(
+        s["document_id"] == "DOC-WHO-EML-2023" and s["page"] == 12
+        for s in res_amox["sources"]
+    )
+    assert "pneumonia" in res_amox["answer"].lower()
+
     res_no = ask_question(
         "What is the current live stock inventory and retail price in EGP of Panadol in Cairo pharmacies?"
     )
     assert res_no["status"] == "no_answer"
     assert res_no["sources"] == []
 
+    res_no_intl = ask_question(
+        "What is the price of Panadol in Montreal pharmacies today?"
+    )
+    assert res_no_intl["status"] == "no_answer"
+    assert res_no_intl["sources"] == []
+
+    res_ar_recall = ask_question("ما هو سبب استدعاء دواء البروجسترون؟")
+    assert res_ar_recall["status"] == "answered"
+    assert res_ar_recall["sources"][0]["document_id"] == "DOC-FDA-ENF-20261102"
+
+    res_ar_price = ask_question("بكام سعر اموكسيسيلين في الصيدليات؟")
+    assert res_ar_price["status"] == "no_answer"
+    assert res_ar_price["sources"] == []
+
+    res_ar_oos = ask_question("ما هي عاصمة فرنسا؟")
+    assert res_ar_oos["status"] == "no_answer"
+    assert res_ar_oos["sources"] == []
+
 
 def test_task5_evaluation_benchmark() -> None:
-    ev = run_rag_evaluation()
+    ev = run_rag_evaluation(persist=False)
     metrics = ev["metrics"]
-    assert metrics["overall_status_accuracy"] >= 0.90
-    assert metrics["document_hit_rate_at_3"] >= 0.90
+    assert metrics["overall_status_accuracy"] == 1.0
+    assert metrics["document_hit_rate_at_1"] == 1.0
+    assert metrics["document_hit_rate_at_3"] == 1.0
+    assert metrics["exact_page_citation_accuracy"] == 1.0
+    assert metrics["evidence_keyword_support_rate"] == 1.0
     assert metrics["unsupported_query_rejection_rate"] == 1.0

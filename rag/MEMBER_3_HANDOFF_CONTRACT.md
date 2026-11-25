@@ -15,7 +15,7 @@ from rag.retrieval import ask_question, retrieve_chunks
 response = ask_question(
     query="What caused the recall of Progesterone 100 mg/mL in Corn Oil Injection (D-321-2016)?",
     top_k=3,
-    min_score=0.16,
+    min_score=0.25,
 )
 
 # 2. Direct Chunk Search (for Document Explorer / Evidence Search tab)
